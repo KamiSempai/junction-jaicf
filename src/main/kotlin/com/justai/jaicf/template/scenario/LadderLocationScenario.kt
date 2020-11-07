@@ -52,7 +52,7 @@ object LadderLocationScenario : Scenario() {
 
                 state(smokedLadder) {
                     activators {
-                        intent("GoForvard")
+                        intent("GoForward")
                     }
                     action {
                         reactions.say("Кх-кх-кх! Ффу! Ничего не видно, я только зря дыма наглотался. Пойду лучше закроюсь в комнате и буду ждать пожарных.")
