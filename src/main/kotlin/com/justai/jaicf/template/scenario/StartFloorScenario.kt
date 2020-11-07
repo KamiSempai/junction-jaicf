@@ -1,8 +1,8 @@
 package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.context.ActionContext
-import com.justai.jaicf.helpers.ssml.breakS
 import com.justai.jaicf.model.scenario.Scenario
+import com.justai.jaicf.template.delayS
 import com.justai.jaicf.template.state.EmergencyPaths
 import com.justai.jaicf.template.state.StartLocationSmoke
 import com.justai.jaicf.template.state.checkpoints
@@ -104,7 +104,7 @@ object StartFloorScenario : Scenario() {
         state(elevator) {
             action {
                 reactions.say("Окей, я добежал до лифтов, вызвал.")
-                reactions.say("${breakS(5)} Похоже, лифты отключились, и я только зря потратил время. Побегу на лестницу.")
+                reactions.say("${delayS(5)} Похоже, лифты отключились, и я только зря потратил время. Побегу на лестницу.")
                 context.checkpoints.KeepCalm = false
                 handleSmoke()
                 reactions.go(redButton)

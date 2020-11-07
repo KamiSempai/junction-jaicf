@@ -3,9 +3,8 @@ package com.justai.jaicf.template.scenario
 import com.justai.jaicf.activator.intent.intent
 import com.justai.jaicf.context.ActionContext
 import com.justai.jaicf.helpers.ssml.audio
-import com.justai.jaicf.helpers.ssml.break1s
-import com.justai.jaicf.helpers.ssml.breakS
 import com.justai.jaicf.model.scenario.Scenario
+import com.justai.jaicf.template.delayS
 import com.justai.jaicf.template.state.FloorFiveRoomLocationSmoke
 import com.justai.jaicf.template.state.checkpoints
 
@@ -96,14 +95,14 @@ object FloorFiveLocationScenario : Scenario() {
                     intent("GiveSign")
                 }
                 action{
-                    reactions.say("Похоже, пожарные меня заметили! А вот и штурмовая лестница. Вылезаю через окно, спускаюсь. ${breakS(2)} Я в безопасности!")
+                    reactions.say("Похоже, пожарные меня заметили! А вот и штурмовая лестница. Вылезаю через окно, спускаюсь. ${delayS(2)} Я в безопасности!")
                     context.checkpoints.AlertFirefighters = true
                     reactions.go(EndGameScenario.state)
                 }
             }
 
             fallback{
-                reactions.say("Пять. Десять. Пятнадцать минут. Ну когда же меня найдут? Что же делать?! ${breakS(2)} Ура! Кажется, я слышу пожарных в коридоре. Наконец-то!")
+                reactions.say("Пять. Десять. Пятнадцать минут. Ну когда же меня найдут? Что же делать?! ${delayS(2)} Ура! Кажется, я слышу пожарных в коридоре. Наконец-то!")
                 context.checkpoints.AlertFirefighters = false
                 context.checkpoints.KeepCalm = false
                 reactions.go(EndGameScenario.state)
