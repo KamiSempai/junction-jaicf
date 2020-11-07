@@ -199,7 +199,7 @@ object StartLocationScenario : Scenario() {
             state("Push it!")
             {
                 activators {
-                    regex("Push")
+                    intent("PressAlarm")
                 }
                 action {
                     reactions.say("Врубилась тревога")
