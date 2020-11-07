@@ -35,6 +35,7 @@ object StartFloorScenario : Scenario() {
             state("Yes") {
                 activators {
                     intent("Yes")
+                    intent("CloseDoor")
                 }
 
                 action {
