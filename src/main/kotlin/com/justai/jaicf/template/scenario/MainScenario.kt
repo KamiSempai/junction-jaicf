@@ -4,7 +4,8 @@ import com.justai.jaicf.model.scenario.Scenario
 
 object MainScenario : Scenario(
     dependencies = listOf(
-        StartLocationScenario,
+        StartRoomScenario,
+        StartFloorScenario,
         LadderLocationScenario,
         FloorFiveLocationScenario,
         EndGameScenario
@@ -19,12 +20,8 @@ object MainScenario : Scenario(
                 regex("/start")
             }
             action {
-                reactions.run {
-                    sayRandom(
-                        "Я в панике!"
-                    )
-                }
-                reactions.go(StartLocationScenario.state)
+                reactions.say("Я в панике!")
+                reactions.go(StartRoomScenario.state)
             }
         }
 
