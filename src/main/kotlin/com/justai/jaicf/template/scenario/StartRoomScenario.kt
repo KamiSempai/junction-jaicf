@@ -127,18 +127,22 @@ object StartRoomScenario : Scenario() {
             action {
                 reactions.say("Стоп, надо собрать с собой учебники библиотечные и конспекты, новые джинсы, а вдруг сгорят? Так, где тут чемодан…")
             }
-
+            
             state("No") {
                 activators {
                     intent("No")
                 }
                 action {
+                    reactions.say("Окей. Но, если что, ты будешь разбираться с библиотекарем.")
                     context.checkpoints.GetExtraClothes = false
                     goToState(StartFloorScenario.state)
                 }
             }
 
             fallback {
+                reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_вещи_сокр.wav")}")
+                reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_чемодан.wav")}")
+                reactions.say("Ай. Чемодан не проходит в дверь! Ну и ладно, побегу налегке.")
                 context.checkpoints.GetExtraClothes = true
                 goToState(StartFloorScenario.state)
             }
