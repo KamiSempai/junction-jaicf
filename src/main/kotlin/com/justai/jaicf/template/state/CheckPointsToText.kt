@@ -69,3 +69,43 @@ fun CheckPoints.getReadableResults() : Pair<List<String>, List<String>> {
 
     return Pair(positive, negative)
 }
+
+fun CheckPoints.getCompactNegative() : String? {
+    val messages = mutableListOf<String>()
+
+    if (CallFirefighters == false)
+        messages.add("вызовом пожарных")
+
+    if (OpenWindow == true)
+        messages.add("открытием окна")
+
+    if (GetExtraClothes == true)
+        messages.add("чемоданом")
+
+    if (CheckDoorknob == false || LeaveDoorClosed == false || DoorClosedByKey == true)
+        messages.add("дверью из комнаты")
+
+    if (ChooseEmergencyPath == EmergencyPaths.Elevator)
+        messages.add("лифтом")
+
+    if (ActivateFireAlarm == false)
+        messages.add("кнопкой пожарной тревоги")
+
+    if (RunOnStair == true || GoToSmoke == true)
+        messages.add("лестницей")
+
+    if (FillGap == false || FillGapWithWetCloth == false)
+        messages.add("дверью на кухню")
+
+    if (WindowJump == true)
+        messages.add("деревом")
+
+    if (AlertFirefighters == false)
+        messages.add("сигналом пожарным")
+
+    return when (messages.size) {
+        0 -> null
+        1 -> messages[0]
+        else -> "${messages.dropLast(1).joinToString(separator = ", ")} и ${messages.last()}"
+    }
+}

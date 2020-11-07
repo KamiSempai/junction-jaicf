@@ -2,6 +2,7 @@ package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.model.scenario.Scenario
 import com.justai.jaicf.template.state.checkpoints
+import com.justai.jaicf.template.state.getCompactNegative
 import com.justai.jaicf.template.state.getReadableResults
 
 object EndGameScenario : Scenario() {
@@ -40,6 +41,20 @@ object EndGameScenario : Scenario() {
                         reactions.say("В этих случаях вы ошиблись:")
                         negative.forEach { reactions.say(it) }
                     }
+                }
+            }
+
+            state("small results") {
+                activators {
+                    regex("/compact")
+                }
+
+                action {
+                    val message = context.checkpoints.getCompactNegative()
+                    if (message == null)
+                        reactions.say("Ты всё сделал правильно!")
+                    else
+                        reactions.say("Ты ошибся в случаях с $message")
                 }
             }
         }
