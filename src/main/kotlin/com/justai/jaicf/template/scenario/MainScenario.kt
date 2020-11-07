@@ -19,6 +19,7 @@ object MainScenario : Scenario(
         state(state) {
             activators {
                 regex("/start")
+                intent("Hello")
             }
             action {
                 reactions.say("Привет, это Никита! Слушай, такое дело, у нас пожар в общаге! Срочно нужна твоя помощь! Что мне делать?")
