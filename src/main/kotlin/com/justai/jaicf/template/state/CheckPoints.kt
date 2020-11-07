@@ -1,7 +1,6 @@
 package com.justai.jaicf.template.state
 
 import com.justai.jaicf.context.BotContext
-import java.io.Serializable
 
 class CheckPoints(
     context: BotContext
