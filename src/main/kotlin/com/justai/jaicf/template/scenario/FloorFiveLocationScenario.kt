@@ -9,19 +9,20 @@ object FloorFiveLocationScenario : Scenario() {
     init {
         state(state) {
             action {
-                reactions.say("I'm on the floor 5. What should I do?")
+                reactions.say("Закрыл дверь, что дальше с ней делать?")
             }
 
-            state("next") {
+            state("next_good") {
                 activators {
-                    regex("/next")
+                    intent("CloseDoor")
                 }
 
                 action {
-                    reactions.say("Ok")
+                    reactions.say("Хорошо")
                     reactions.go(EndGameScenario.state)
                 }
             }
+            
         }
     }
 }

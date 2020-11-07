@@ -17,7 +17,7 @@
     "enabled" : true,
     "shared" : false,
     "phrases" : [ ],
-    "patterns" : [ ]
+    "patterns" : [ "@Call пожарных" ]
   }, {
     "id" : 9388,
     "path" : "/CheckDoorknob",
@@ -222,6 +222,31 @@
     "patterns" : [ ]
   } ],
   "entities" : [ {
+    "entity" : {
+      "id" : 7682,
+      "name" : "Call",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 123791,
+      "type" : "pattern",
+      "rule" : [ "(*звон*/звякн*/набира*/набра*/набери/набира*)" ],
+      "value" : ""
+    }, {
+      "id" : 123792,
+      "type" : "pattern",
+      "rule" : [ "(*зыва*/вызва*/вызов*/призва*/призови/призыва*)" ],
+      "value" : ""
+    } ]
+  }, {
     "entity" : {
       "id" : 7675,
       "name" : "Close",
