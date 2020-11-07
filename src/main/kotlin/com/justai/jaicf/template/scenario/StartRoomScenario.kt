@@ -1,6 +1,7 @@
 package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.context.ActionContext
+import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.model.scenario.Scenario
 import com.justai.jaicf.template.state.*
 
@@ -140,8 +141,8 @@ object StartRoomScenario : Scenario() {
             }
 
             fallback {
-                reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_вещи_сокр.wav")}")
-                reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_чемодан.wav")}")
+                reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_вещи_сокр.wav"))
+                reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_чемодан.wav"))
                 reactions.say("Ай. Чемодан не проходит в дверь! Ну и ладно, побегу налегке.")
                 context.checkpoints.GetExtraClothes = true
                 goToState(StartFloorScenario.state)
