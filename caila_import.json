@@ -93,6 +93,8 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "@No @Close"
+    }, {
+      "text" : "@NoNeed @Close"
     } ],
     "patterns" : [ ]
   }, {
@@ -152,6 +154,8 @@
       "text" : "@No @Open окошко"
     }, {
       "text" : "@No @Open форточку"
+    }, {
+      "text" : "@NoNeed @Open окно"
     } ],
     "patterns" : [ ]
   }, {
@@ -178,7 +182,7 @@
     }, {
       "text" : "не уходи"
     }, {
-      "text" : "не надо уходить"
+      "text" : "@NoNeed уходить"
     } ],
     "patterns" : [ ]
   }, {
@@ -207,7 +211,13 @@
     "path" : "/GiveSign",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "помаши"
+    }, {
+      "text" : "подай знак"
+    }, {
+      "text" : "маши руками"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9399,
@@ -228,7 +238,29 @@
     "path" : "/LeaveThings",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Take"
+    }, {
+      "text" : "оставь вещи"
+    }, {
+      "text" : "кинь чемодан"
+    }, {
+      "text" : "@No чемодан"
+    }, {
+      "text" : "@No учебники"
+    }, {
+      "text" : "@No конспекты"
+    }, {
+      "text" : "@No джинсы"
+    }, {
+      "text" : "@NoNeed @Take"
+    }, {
+      "text" : "@NoNeed чемодан"
+    }, {
+      "text" : "@NoNeed @Take @No вещи"
+    }, {
+      "text" : "@No @Take @No вещи"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9362,
@@ -271,7 +303,11 @@
     "description" : "Иди в комнату, закройся в комнате",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "иди в комнату"
+    }, {
+      "text" : "закройся в комнате"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9328,
@@ -412,7 +448,12 @@
       "fuzzySearch" : false,
       "client" : false
     },
-    "records" : [ ]
+    "records" : [ {
+      "id" : 123806,
+      "type" : "synonyms",
+      "rule" : [ "нужно", "надо", "стоит" ],
+      "value" : ""
+    } ]
   }, {
     "entity" : {
       "id" : 7673,
@@ -556,6 +597,31 @@
       "id" : 114432,
       "type" : "synonyms",
       "rule" : [ "с права" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 7685,
+      "name" : "Take",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 123805,
+      "type" : "synonyms",
+      "rule" : [ "(*брал/*бирал/*бираешь)" ],
+      "value" : ""
+    }, {
+      "id" : 123804,
+      "type" : "synonyms",
+      "rule" : [ "(*брать/*бери/хвата*/*хвати/*хватить/*хватыва*/*бирай/*бирать)" ],
       "value" : ""
     } ]
   }, {
