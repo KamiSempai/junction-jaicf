@@ -1,5 +1,6 @@
 package com.justai.jaicf.template.scenario
 
+import com.justai.jaicf.channel.jaicp.channels.TelephonyEvents
 import com.justai.jaicf.model.scenario.Scenario
 
 object MainScenario : Scenario(
@@ -20,9 +21,23 @@ object MainScenario : Scenario(
                 regex("/start")
             }
             action {
-                context.session.clear()
                 reactions.say("Привет, это Никита! Слушай, такое дело, у нас пожар в общаге! Срочно нужна твоя помощь! Что мне делать?")
                 reactions.go(StartRoomScenario.state)
+            }
+        }
+
+        state("HangUp") {
+            activators {
+                event(TelephonyEvents.HANGUP)
+            }
+            action {
+                context.run {
+                    cleanSessionData()
+                    dialogContext.run {
+                        currentState = "/"
+                        currentContext = "/"
+                    }
+                }
             }
         }
 
