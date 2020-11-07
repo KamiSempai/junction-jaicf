@@ -25,11 +25,11 @@ object FloorFiveLocationScenario : Scenario() {
                     context.checkpoints.FillGap = true
                     reactions.go(firefighters)
                 }
-                fallback {
-                    reactions.say("Кажется, я слышу сирену! Пожарные приехали, ура, меня спасут! Можно расслабиться и ничего не делать.")
-                    context.checkpoints.FillGap = false
-                    reactions.go(firefighters)
-                }
+            }
+            fallback {
+                reactions.say("Кажется, я слышу сирену! Пожарные приехали, ура, меня спасут! Можно расслабиться и ничего не делать.")
+                context.checkpoints.FillGap = false
+                reactions.go(firefighters)
             }
         }
 
@@ -43,13 +43,12 @@ object FloorFiveLocationScenario : Scenario() {
                     context.checkpoints.AlertFirefighters = true
                     reactions.go(EndGameScenario.state)
                 }
-
-                fallback {
-                    reactions.say("Пять, десять, пятнадцать минут… Меня когда-нибудь найдут? Что же делать?! О, ура, кажется, я слышу пожарных в коридоре, наконец-то!")
-                    context.checkpoints.AlertFirefighters = false
-                    context.checkpoints.KeepCalm = false
-                    reactions.go(EndGameScenario.state)
-                }
+            }
+            fallback {
+                reactions.say("Пять, десять, пятнадцать минут… Меня когда-нибудь найдут? Что же делать?! О, ура, кажется, я слышу пожарных в коридоре, наконец-то!")
+                context.checkpoints.AlertFirefighters = false
+                context.checkpoints.KeepCalm = false
+                reactions.go(EndGameScenario.state)
             }
         }
     }

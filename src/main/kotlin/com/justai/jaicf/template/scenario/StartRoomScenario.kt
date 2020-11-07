@@ -146,6 +146,4 @@ object StartRoomScenario : Scenario() {
             }
         }
     }
-
-
 }

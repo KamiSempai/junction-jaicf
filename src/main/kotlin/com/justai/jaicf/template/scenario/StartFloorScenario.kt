@@ -24,113 +24,114 @@ object StartFloorScenario : Scenario() {
             action {
                 reactions.go(doorOutside)
             }
-            state(doorOutside) {
+        }
+
+        state(doorOutside) {
+            action {
+                reactions.say("Вышел, дверь закрыть или оставить?")
+            }
+
+            state("Yes") {
+                activators {
+                    intent("Yes")
+                }
+
                 action {
-                    reactions.say("Вышел, дверь закрыть или оставить?")
-                }
-
-                state("Yes") {
-                    activators {
-                        intent("Yes")
-                    }
-
-                    action {
-                        context.checkpoints.LeaveDoorClosed = true
-                        handleSmoke()
-                        reactions.go(doorClosing)
-                    }
-                }
-
-                fallback {
                     context.checkpoints.LeaveDoorClosed = true
                     handleSmoke()
-                    reactions.go(choosePath)
+                    reactions.go(doorClosing)
                 }
             }
 
-            state(doorClosing) {
+            fallback {
+                context.checkpoints.LeaveDoorClosed = true
+                handleSmoke()
+                reactions.go(choosePath)
+            }
+        }
+
+        state(doorClosing) {
+            action {
+                reactions.say("Хорошо. Только найду ключ. Где же он?")
+            }
+
+            state("No") {
+                activators {
+                    intent("No") // TODO add more intents
+                }
+
                 action {
-                    reactions.say("Хорошо. Только найду ключ. Где же он?")
-                }
-
-                state("No") {
-                    activators {
-                        intent("No") // TODO add more intents
-                    }
-
-                    action {
-                        context.checkpoints.DoorClosedByKey = false
-                        handleSmoke()
-                        reactions.go(choosePath)
-                    }
-                }
-
-                fallback {
-                    context.checkpoints.DoorClosedByKey = true
+                    context.checkpoints.DoorClosedByKey = false
                     handleSmoke()
                     reactions.go(choosePath)
                 }
             }
 
-            state(choosePath) {
-                action {
-                    reactions.say("Окей, я в коридоре, тут тоже дым. Непонятно, что и где горит. Надо эвакуироваться. Лестница справа, лифты слева, куда бежать?")
-                }
+            fallback {
+                context.checkpoints.DoorClosedByKey = true
+                handleSmoke()
+                reactions.go(choosePath)
+            }
+        }
 
-                state("Stair") {
-                    activators {
-                        intent("Stairs")
-                    }
-
-                    action {
-                        reactions.say("Да, кажется, что-то такое нам и говорили на инструктаже по безопасности, жаль, я всё прослушал. Бегу.")
-                        context.checkpoints.ChooseEmergencyPath = EmergencyPaths.Stair
-                        handleSmoke()
-                        reactions.go(redButton)
-                    }
-                }
-
-                fallback {
-                    reactions.say("Побежал к лифтам")
-                    context.checkpoints.ChooseEmergencyPath = EmergencyPaths.Elevator
-                    handleSmoke()
-                    reactions.go(elevator)
-                }
+        state(choosePath) {
+            action {
+                reactions.say("Окей, я в коридоре, тут тоже дым. Непонятно, что и где горит. Надо эвакуироваться. Лестница справа, лифты слева, куда бежать?")
             }
 
-            state(elevator) {
+            state("Stair") {
+                activators {
+                    intent("Stairs")
+                }
+
                 action {
-                    reactions.say("Окей, я добежал до лифтов, вызвал.")
-                    reactions.say("Похоже, лифты отключились, и я только зря потратил время… Побегу на лестницу.")
-                    context.checkpoints.KeepCalm = false
+                    reactions.say("Да, кажется, что-то такое нам и говорили на инструктаже по безопасности, жаль, я всё прослушал. Бегу.")
+                    context.checkpoints.ChooseEmergencyPath = EmergencyPaths.Stair
                     handleSmoke()
                     reactions.go(redButton)
                 }
             }
 
-            state(redButton) {
+            fallback {
+                reactions.say("Побежал к лифтам")
+                context.checkpoints.ChooseEmergencyPath = EmergencyPaths.Elevator
+                handleSmoke()
+                reactions.go(elevator)
+            }
+        }
+
+        state(elevator) {
+            action {
+                reactions.say("Окей, я добежал до лифтов, вызвал.")
+                reactions.say("Похоже, лифты отключились, и я только зря потратил время… Побегу на лестницу.")
+                context.checkpoints.KeepCalm = false
+                handleSmoke()
+                reactions.go(redButton)
+            }
+        }
+
+        state(redButton) {
+            action {
+                reactions.say("Тут на стене какая-то красная кнопка под стеклом, нажать или не тратить время?")
+            }
+
+            state("Push it!")
+            {
+                activators {
+                    intent("PressAlarm")
+                }
                 action {
-                    reactions.say("Тут на стене какая-то красная кнопка под стеклом, нажать или не тратить время?")
-                }
-
-                state("Push it!")
-                {
-                    activators {
-                        intent("PressAlarm")
-                    }
-                    action {
-                        reactions.say("Врубилась тревога")
-                        context.checkpoints.ActivateFireAlarm = true
-                        handleSmoke()
-                        reactions.go(LadderLocationScenario.state)
-                    }
-                }
-
-                fallback {
-                    context.checkpoints.ActivateFireAlarm = false
+                    reactions.say("Врубилась тревога")
+                    context.checkpoints.ActivateFireAlarm = true
                     handleSmoke()
                     reactions.go(LadderLocationScenario.state)
                 }
+            }
+
+            fallback {
+                context.checkpoints.ActivateFireAlarm = false
+                handleSmoke()
+                reactions.go(LadderLocationScenario.state)
             }
         }
     }
