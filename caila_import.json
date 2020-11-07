@@ -269,6 +269,15 @@
     } ],
     "patterns" : [ ]
   }, {
+    "id" : 9658,
+    "path" : "/Hello",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "Привет"
+    } ],
+    "patterns" : [ ]
+  }, {
     "id" : 9636,
     "path" : "/Jump",
     "enabled" : true,
@@ -397,6 +406,12 @@
       "text" : "@No ходи в дым"
     }, {
       "text" : "@NoNeed идти вперед в дым"
+    }, {
+      "text" : "найди комнату"
+    }, {
+      "text" : "найди открытую комнату"
+    }, {
+      "text" : "поищи какая комната открыта"
     } ],
     "patterns" : [ ]
   }, {
