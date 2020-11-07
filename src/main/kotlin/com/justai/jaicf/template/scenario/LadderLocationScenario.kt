@@ -65,6 +65,11 @@ object LadderLocationScenario : Scenario() {
                     reactions.go(FloorFiveLocationScenario.state)
                 }
             }
+
+            fallback {
+                reactions.say("Я тебя не расслышал, но тут есть открытая кухня, пойду туда")
+                reactions.go(FloorFiveLocationScenario.state)
+            }
         }
     }
 }
