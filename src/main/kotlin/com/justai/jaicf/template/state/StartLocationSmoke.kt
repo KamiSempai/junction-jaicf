@@ -16,8 +16,8 @@ object StartLocationSmoke {
     fun handleSmoke(context: ActionContext) = context.run {
         smoke.handle {
             when(it) {
-                0 -> reactions.say("Smoke!") //TODO fix text
-                1 -> reactions.say("SMOKE!!!!") //TODO fix text
+                0 -> reactions.say("Дыма становится все больше.")
+                1 -> reactions.say("Кхе-Кхе. Тут все в дыму. Нужно бежать отсюда!")
             }
         }
     }
