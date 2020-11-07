@@ -2,6 +2,7 @@ package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.activator.intent.intent
 import com.justai.jaicf.context.ActionContext
+import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.helpers.ssml.break1s
 import com.justai.jaicf.helpers.ssml.breakS
 import com.justai.jaicf.model.scenario.Scenario
@@ -71,7 +72,7 @@ object FloorFiveLocationScenario : Scenario() {
                     intent("Jump")
                 }
                 action {
-                    reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav")}")
+                    reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav"))
                     reactions.say("Aaaaaa! Я жив. Но кажется сломал ногу.")
                     context.checkpoints.WindowJump = true
                     reactions.go(EndGameScenario.state)

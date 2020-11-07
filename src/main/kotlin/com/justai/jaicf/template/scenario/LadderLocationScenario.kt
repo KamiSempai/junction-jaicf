@@ -1,5 +1,6 @@
 package com.justai.jaicf.template.scenario
 
+import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.model.scenario.Scenario
 import com.justai.jaicf.template.state.checkpoints
 
@@ -20,7 +21,7 @@ object LadderLocationScenario : Scenario() {
                 }
 
                 action {
-                    reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_бег+дыхание.wav")}")
+                    reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_бег+дыхание.wav"))
                     reactions.say("Ступенька, ещё ступенька и… дошёл, отлично.")
                     context.checkpoints.RunOnStair = false
                     reactions.go(forthFlat)
@@ -28,8 +29,8 @@ object LadderLocationScenario : Scenario() {
             }
 
             fallback {
-                reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_бег+дыхание.wav")}")
-                reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav")}")
+                reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_бег+дыхание.wav"))
+                reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav"))
                 reactions.say("Чёрт, я споткнулся на лестнице и, кажется, подвернул ногу! Как же больно. Хорошо хоть идти могу. Но такими темпами я могу и не успеть выбраться!")
                 context.checkpoints.RunOnStair = true
                 context.checkpoints.KeepCalm = false
