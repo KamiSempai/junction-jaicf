@@ -15,6 +15,11 @@ object StartRoomScenario : Scenario() {
         StartLocationSmoke.handleSmoke(this)
     }
 
+    private fun ActionContext.goToState(state: String) {
+        handleSmoke()
+        reactions.go(state)
+    }
+
     init {
         state(state) {
             action {
@@ -30,8 +35,7 @@ object StartRoomScenario : Scenario() {
                     reactions.say("Да, пожарных я уже вызвал, но когда они ещё приедут, а мне нужно что-то делать…")
                     checkpoints.CallFirefighters = true
                     checkpoints.KeepCalm = true
-                    handleSmoke()
-                    reactions.go(window)
+                    goToState(window)
                 }
             }
 
@@ -44,8 +48,7 @@ object StartRoomScenario : Scenario() {
                     reactions.say("Вдох-выдох, вдох-выдох")
                     context.checkpoints.CallFirefighters = false
                     context.checkpoints.KeepCalm = true
-                    handleSmoke()
-                    reactions.go(window)
+                    goToState(window)
                 }
 
             }
@@ -63,8 +66,7 @@ object StartRoomScenario : Scenario() {
             reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
             context.checkpoints.OpenWindow = true
             StartLocationSmoke.increaseVelocity(this)
-            handleSmoke()
-            reactions.go(door)
+            goToState(door)
         }
 
         state(window) {
@@ -79,8 +81,7 @@ object StartRoomScenario : Scenario() {
                 action {
                     reactions.say("Отлично, понял.")
                     context.checkpoints.OpenWindow = false
-                    handleSmoke()
-                    reactions.go(door)
+                    goToState(door)
                 }
             }
 
@@ -118,8 +119,7 @@ object StartRoomScenario : Scenario() {
 
             fallback {
                 context.checkpoints.CheckDoorknob = false
-                handleSmoke()
-                reactions.go(things)
+                goToState(things)
             }
         }
 
@@ -134,15 +134,13 @@ object StartRoomScenario : Scenario() {
                 }
                 action {
                     context.checkpoints.GetExtraClothes = false
-                    handleSmoke()
-                    reactions.go(StartFloorScenario.state)
+                    goToState(StartFloorScenario.state)
                 }
             }
 
             fallback {
                 context.checkpoints.GetExtraClothes = true
-                handleSmoke()
-                reactions.go(StartFloorScenario.state)
+                goToState(StartFloorScenario.state)
             }
         }
     }
