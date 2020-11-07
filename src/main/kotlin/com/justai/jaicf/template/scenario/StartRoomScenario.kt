@@ -21,6 +21,13 @@ object StartRoomScenario : Scenario() {
         reactions.go(state)
     }
 
+    private fun ActionContext.openWindow() {
+        reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
+        context.checkpoints.OpenWindow = true
+        StartLocationSmoke.increaseVelocity(this)
+        goToState(door)
+    }
+
     init {
         state(state) {
             action {
@@ -33,9 +40,11 @@ object StartRoomScenario : Scenario() {
                 }
 
                 action {
-                    reactions.say("Да, пожарных я уже вызвал, но когда они ещё приедут, а мне нужно что-то делать…")
-                    checkpoints.CallFirefighters = true
-                    checkpoints.KeepCalm = true
+                    if (checkpoints.CallFirefighters != true) {
+                        reactions.say("Да, пожарных я уже вызвал, но когда они ещё приедут, а мне нужно что-то делать…")
+                        checkpoints.CallFirefighters = true
+                        checkpoints.KeepCalm = true
+                    }
                     goToState(window)
                 }
             }
@@ -46,28 +55,36 @@ object StartRoomScenario : Scenario() {
                 }
 
                 action {
-                    reactions.say("Вдох-выдох, вдох-выдох")
-                    context.checkpoints.CallFirefighters = false
-                    context.checkpoints.KeepCalm = true
-                    goToState(window)
+                    if (context.checkpoints.KeepCalm != true) {
+                        reactions.say("Вдох-выдох, вдох-выдох")
+                        context.checkpoints.KeepCalm = true
+                        goToState(state)
+                    } else {
+                        goToState(window)
+                    }
                 }
 
             }
 
+            state("Open Window") {
+                activators {
+                    intent("OpenWindow")
+                }
+                action {
+                    openWindow()
+                }
+            }
+
             fallback {
                 handleSmoke()
-                reactions.say("АААААААААа!!!!!!")
-                context.checkpoints.CallFirefighters = false
-                context.checkpoints.KeepCalm = false
-                reactions.go(window)
+                if (context.checkpoints.KeepCalm == null) {
+                    reactions.say("АААААААААа!!!!!!")
+                    context.checkpoints.KeepCalm = false
+                    goToState(state)
+                } else {
+                    goToState(window)
+                }
             }
-        }
-
-        fun ActionContext.openWindow() {
-            reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
-            context.checkpoints.OpenWindow = true
-            StartLocationSmoke.increaseVelocity(this)
-            goToState(door)
         }
 
         state(window) {
@@ -89,6 +106,7 @@ object StartRoomScenario : Scenario() {
             state("Yes") {
                 activators {
                     intent("Yes")
+                    intent("OpenWindow")
                 }
                 action {
                     openWindow()
