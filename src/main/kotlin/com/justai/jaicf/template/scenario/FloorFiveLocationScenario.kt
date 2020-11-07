@@ -11,9 +11,8 @@ import com.justai.jaicf.template.state.checkpoints
 object FloorFiveLocationScenario : Scenario() {
 
     const val state = "/location/floor5"
-    const val door = "/location/floor5/door"
-    const val window = "/location/floor5/window"
-    const val firefighters = "/location/floor5/firefighters"
+    private const val window = "window"
+    private const val firefighters = "firefighters"
 
 
     private fun ActionContext.handleSmoke() {
@@ -31,7 +30,7 @@ object FloorFiveLocationScenario : Scenario() {
                 reactions.say("Закрыл дверь, что дальше с ней делать?")
             }
 
-            state(door) {
+            state("door") {
                 activators {
                     intent("UseWetCloth")
                     intent("UseCloth")
@@ -39,11 +38,11 @@ object FloorFiveLocationScenario : Scenario() {
                 action {
                     context.checkpoints.FillGap = true
                     context.checkpoints.FillGapWithWetCloth = this.activator.intent?.intent == "UseWetCloth"
-                    reactions.go(firefighters)
+                    reactions.go(window)
                 }
                 fallback{
                     context.checkpoints.FillGap = false
-                    reactions.go(firefighters)
+                    reactions.go(window)
                 }
             }
 

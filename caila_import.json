@@ -87,6 +87,17 @@
     } ],
     "patterns" : [ ]
   }, {
+    "id" : 9626,
+    "path" : "/DoNot",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@NoNeed"
+    }, {
+      "text" : "@No"
+    } ],
+    "patterns" : [ ]
+  }, {
     "id" : 9391,
     "path" : "/DoNotClose",
     "enabled" : true,
@@ -113,6 +124,17 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "@No @Close окно"
+    } ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9625,
+    "path" : "/DoNotJump",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@NoNeed @Jump"
+    }, {
+      "text" : "@No @Jump"
     } ],
     "patterns" : [ ]
   }, {
@@ -244,6 +266,15 @@
       "text" : "ступай вперед"
     }, {
       "text" : "иди в дым"
+    } ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9636,
+    "path" : "/Jump",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@Jump"
     } ],
     "patterns" : [ ]
   }, {
@@ -427,6 +458,21 @@
       "text" : "используй @Cloth"
     }, {
       "text" : "заткни @Cloth щель"
+    }, {
+      "text" : "заткни щели"
+    } ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9579,
+    "path" : "/UseCloth/UseWetCloth",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "заткни @Wet @Cloth щель"
+    }, {
+      "text" : "используй @Wet @Cloth"
+    }, {
+      "text" : "@Take @Wet @Cloth"
     } ],
     "patterns" : [ ]
   }, {
@@ -504,6 +550,11 @@
       "client" : false
     },
     "records" : [ {
+      "id" : 133235,
+      "type" : "synonyms",
+      "rule" : [ "(одежд*)" ],
+      "value" : ""
+    }, {
       "id" : 123818,
       "type" : "pattern",
       "rule" : [ "(покрывал*/шарф*/простын*/одеял*/подушк*/прихватк*/скатерт*)" ],
@@ -512,6 +563,26 @@
       "id" : 123817,
       "type" : "pattern",
       "rule" : [ "(тряпк*/полотенц*/ткан*/занавес*/штор*)" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 7709,
+      "name" : "Jump",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 133207,
+      "type" : "pattern",
+      "rule" : [ "(прыг*)" ],
       "value" : ""
     } ]
   }, {
@@ -584,6 +655,21 @@
       "rule" : [ "забей" ],
       "value" : ""
     }, {
+      "id" : 133210,
+      "type" : "synonyms",
+      "rule" : [ "не" ],
+      "value" : ""
+    }, {
+      "id" : 133211,
+      "type" : "synonyms",
+      "rule" : [ "неа" ],
+      "value" : ""
+    }, {
+      "id" : 133204,
+      "type" : "synonyms",
+      "rule" : [ "нееет", "неет" ],
+      "value" : ""
+    }, {
       "id" : 123801,
       "type" : "synonyms",
       "rule" : [ "нет" ],
@@ -597,6 +683,11 @@
       "id" : 123802,
       "type" : "pattern",
       "rule" : [ "никак*" ],
+      "value" : ""
+    }, {
+      "id" : 133212,
+      "type" : "synonyms",
+      "rule" : [ "ноуп" ],
       "value" : ""
     } ]
   }, {
@@ -737,6 +828,26 @@
       "id" : 123804,
       "type" : "synonyms",
       "rule" : [ "(*брать/*бери/хвата*/*хвати/*хватить/*хватыва*/*бирай/*бирать)" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 7706,
+      "name" : "Wet",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 133205,
+      "type" : "pattern",
+      "rule" : [ "(намочи*/смочи*/смочен*/мокр*)" ],
       "value" : ""
     } ]
   }, {
