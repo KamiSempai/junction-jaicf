@@ -78,7 +78,7 @@ object StartRoomScenario : Scenario() {
             fallback {
                 handleSmoke()
                 if (context.checkpoints.KeepCalm == null) {
-                    reactions.say("АААААААААа!!!!!!")
+                    reactions.say("+А-а-а-а-ааааа! Никто мне не поможет!")
                     context.checkpoints.KeepCalm = false
                     goToState(state)
                 } else {
