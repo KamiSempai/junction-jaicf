@@ -16,28 +16,62 @@
     "path" : "/CallFirefighters",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
-    "patterns" : [ "@Call пожарных" ]
+    "phrases" : [ {
+      "text" : "@Call пожарных"
+    }, {
+      "text" : "@Call пожарников"
+    }, {
+      "text" : "@Call ноль один"
+    }, {
+      "text" : "@Call в пожарную"
+    } ],
+    "patterns" : [ ]
   }, {
     "id" : 9388,
     "path" : "/CheckDoorknob",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "проверь температуру ручки"
+    }, {
+      "text" : "потрогай ручку"
+    }, {
+      "text" : "горячая ли ручка"
+    }, {
+      "text" : "раскаленная ручка"
+    }, {
+      "text" : "потрогай дверь"
+    }, {
+      "text" : "горячая ли дверь"
+    }, {
+      "text" : "дверь раскалилась"
+    }, {
+      "text" : "ручка нагрелась"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9390,
     "path" : "/Close",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Close"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9413,
     "path" : "/Close/CloseDoor",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Close дверь"
+    }, {
+      "text" : "@Close дверку"
+    }, {
+      "text" : "@Close входную дверь"
+    }, {
+      "text" : "@Close вход"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9414,
@@ -211,8 +245,14 @@
       "text" : "ступеньки"
     }, {
       "text" : "ступени"
+    }, {
+      "text" : "@Right"
+    }, {
+      "text" : "иди @Right"
+    }, {
+      "text" : "беги @Right"
     } ],
-    "patterns" : [ "@Right" ]
+    "patterns" : [ ]
   }, {
     "id" : 9402,
     "path" : "/UseCloth",
@@ -260,7 +300,12 @@
       "fuzzySearch" : false,
       "client" : false
     },
-    "records" : [ ]
+    "records" : [ {
+      "id" : 123793,
+      "type" : "pattern",
+      "rule" : [ "(захлоп*/закры*/закрой/запер*/запира*/запри*)" ],
+      "value" : ""
+    } ]
   }, {
     "entity" : {
       "id" : 7677,
