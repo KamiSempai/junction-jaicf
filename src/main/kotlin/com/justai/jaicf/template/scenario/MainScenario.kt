@@ -20,7 +20,7 @@ object MainScenario : Scenario(
                 regex("/start")
             }
             action {
-                reactions.say("Я в панике!")
+                reactions.say("Привет, это Никита! Слушай, такое дело, у нас пожар в общаге! Срочно нужна твоя помощь! Что мне делать?")
                 reactions.go(StartRoomScenario.state)
             }
         }

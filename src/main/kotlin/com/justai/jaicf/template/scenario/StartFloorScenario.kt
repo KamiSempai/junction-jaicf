@@ -54,7 +54,7 @@ object StartFloorScenario : Scenario() {
 
                 state("Stair") {
                     activators {
-                        regex("right")
+                        intent("Stairs")
                     }
 
                     action {
