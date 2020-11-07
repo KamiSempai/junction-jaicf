@@ -134,7 +134,7 @@
     "phrases" : [ {
       "text" : "@NoNeed @Jump"
     }, {
-      "text" : "не @Jump"
+      "text" : "@No @Jump"
     } ],
     "patterns" : [ ]
   }, {
@@ -639,6 +639,16 @@
       "rule" : [ "забей" ],
       "value" : ""
     }, {
+      "id" : 133210,
+      "type" : "synonyms",
+      "rule" : [ "не" ],
+      "value" : ""
+    }, {
+      "id" : 133211,
+      "type" : "synonyms",
+      "rule" : [ "неа" ],
+      "value" : ""
+    }, {
       "id" : 133204,
       "type" : "synonyms",
       "rule" : [ "нееет", "неет" ],
@@ -657,6 +667,11 @@
       "id" : 123802,
       "type" : "pattern",
       "rule" : [ "никак*" ],
+      "value" : ""
+    }, {
+      "id" : 133212,
+      "type" : "synonyms",
+      "rule" : [ "ноуп" ],
       "value" : ""
     } ]
   }, {
