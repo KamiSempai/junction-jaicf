@@ -183,6 +183,10 @@
       "text" : "не уходи"
     }, {
       "text" : "@NoNeed уходить"
+    }, {
+      "text" : "@NoNeed убегать"
+    }, {
+      "text" : "@NoNeed бежать"
     } ],
     "patterns" : [ ]
   }, {
@@ -217,6 +221,12 @@
       "text" : "подай знак"
     }, {
       "text" : "маши руками"
+    }, {
+      "text" : "просигнализируй"
+    }, {
+      "text" : "посигналь"
+    }, {
+      "text" : "нужен сигнал"
     } ],
     "patterns" : [ ]
   }, {
@@ -224,14 +234,32 @@
     "path" : "/GoForward",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "иди прямо"
+    }, {
+      "text" : "прямо"
+    }, {
+      "text" : "вперед"
+    }, {
+      "text" : "ступай вперед"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9361,
     "path" : "/KeepCalm",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "сохраняй спокойствие"
+    }, {
+      "text" : "будь спокоен"
+    }, {
+      "text" : "не волнуйся"
+    }, {
+      "text" : "не переживай"
+    }, {
+      "text" : "успокойся"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9389,
@@ -268,21 +296,27 @@
     "description" : "Open the window, open the door",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Open"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9407,
     "path" : "/Open/OpenDoor",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Open дверь"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9406,
     "path" : "/Open/OpenWindow",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Open окно"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9395,
@@ -356,7 +390,9 @@
     "path" : "/UseCloth",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Take @Cloth"
+    } ],
     "patterns" : [ ]
   } ],
   "entities" : [ {
@@ -402,6 +438,31 @@
       "id" : 123793,
       "type" : "pattern",
       "rule" : [ "(захлоп*/закры*/закрой/запер*/запира*/запри*)" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 7690,
+      "name" : "Cloth",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 123818,
+      "type" : "pattern",
+      "rule" : [ "(покрывал*/шарф*/простын*/одеял*/подушк*/прихватк*/скатерт*)" ],
+      "value" : ""
+    }, {
+      "id" : 123817,
+      "type" : "pattern",
+      "rule" : [ "(тряпк*/полотенц*/ткан*/занавес*/штор*)" ],
       "value" : ""
     } ]
   }, {

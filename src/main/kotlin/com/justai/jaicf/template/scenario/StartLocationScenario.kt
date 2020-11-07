@@ -22,7 +22,7 @@ object StartLocationScenario : Scenario() {
 
             state("call firefighters") {
                 activators {
-                    regex("call firefighters")
+                    intent("CallFirefighters")
                 }
 
                 action {
@@ -35,7 +35,7 @@ object StartLocationScenario : Scenario() {
 
             state("keep calm") {
                 activators {
-                    regex("keep calm")
+                    intent("KeepCalm")
                 }
 
                 action {
@@ -99,7 +99,7 @@ object StartLocationScenario : Scenario() {
 
             state("Check doorknob") {
                 activators {
-                    regex("Check doorknob")
+                    intent("CheckDoorknob")
                 }
 
                 action {
