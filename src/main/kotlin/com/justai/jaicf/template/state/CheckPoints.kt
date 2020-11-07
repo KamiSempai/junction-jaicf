@@ -1,18 +1,21 @@
 package com.justai.jaicf.template.state
 
+import com.justai.jaicf.context.BotContext
 import java.io.Serializable
 
-class CheckPoints: Serializable {
-    var KeepCalm: Boolean? = null
-    var CallFirefighters: Boolean? = null
-    var OpenWindow: Boolean? = null
-    var GetExtraClothes: Boolean? = null
-    var CheckDoorknob: Boolean? = null
-    var LeaveDoorClosed: Boolean? = null
-    var ChooseEmergencyPath: EmergencyPaths? = null
-    var ActivateFireAlarm: Boolean? = null
-    var RunOnStair: Boolean? = null
-    var GoToSmoke: Boolean? = null
-    var FillGap: Boolean? = null
-    var AlertFirefighters: Boolean? = null
+class CheckPoints(
+    context: BotContext
+) {
+    var KeepCalm: Boolean? by context.session
+    var CallFirefighters: Boolean? by context.session
+    var OpenWindow: Boolean? by context.session
+    var GetExtraClothes: Boolean? by context.session
+    var CheckDoorknob: Boolean? by context.session
+    var LeaveDoorClosed: Boolean? by context.session
+    var ChooseEmergencyPath: EmergencyPaths? by context.session
+    var ActivateFireAlarm: Boolean? by context.session
+    var RunOnStair: Boolean? by context.session
+    var GoToSmoke: Boolean? by context.session
+    var FillGap: Boolean? by context.session
+    var AlertFirefighters: Boolean? by context.session
 }
