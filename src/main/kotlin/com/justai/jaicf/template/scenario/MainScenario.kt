@@ -21,20 +21,9 @@ object MainScenario : Scenario(
             action {
                 reactions.run {
                     sayRandom(
-                        "Hello! I need your help!",
-                        "Hi there! I need your help!"
+                        "Я в панике!"
                     )
                 }
-            }
-        }
-
-        state("Start Game") {
-            activators {
-                intent("/Run")
-            }
-
-            action {
-                reactions.go(StartLocationScenario.state)
             }
         }
 

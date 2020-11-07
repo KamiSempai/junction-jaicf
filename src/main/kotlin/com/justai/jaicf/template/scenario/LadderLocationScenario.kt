@@ -9,16 +9,25 @@ object LadderLocationScenario : Scenario() {
     init {
         state(state) {
             action {
-                reactions.say("I'm on the ladder. What should I do?")
+                reactions.say("Я на площадке пятого этажа, но снизу валит дым! Что мне делать?")
+            }
+            
+             state("next_good"){
+                activators{
+                    intent("Room")
+                }
+                action {
+                    reactions.say("Отлично, кухня открыта, запрусь здесь.")
+                    reactions.go(FloorFiveLocationScenario.state)
+                }
             }
 
-            state("next") {
+            state("next_bad") {
                 activators {
-                    regex("/next")
+                    intent("GoForvard")
                 }
-
                 action {
-                    reactions.say("Ok")
+                    reactions.say("Кх-кх-кх! Ффу! Ничего не видно, я только зря дыма наглотался. Пойду лучше закроюсь в комнате и буду ждать пожарных.")
                     reactions.go(FloorFiveLocationScenario.state)
                 }
             }

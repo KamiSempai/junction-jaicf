@@ -12,8 +12,93 @@
     "shared" : false
   },
   "intents" : [ {
+    "id" : 9357,
+    "path" : "/CallFirefighters",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9388,
+    "path" : "/CheckDoorknob",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9390,
+    "path" : "/Close",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9413,
+    "path" : "/Close/CloseDoor",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9414,
+    "path" : "/Close/CloseWindow",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9391,
+    "path" : "/DoNotClose",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9411,
+    "path" : "/DoNotClose/DoNotCloseDoor",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9412,
+    "path" : "/DoNotClose/DoNotCloseWindow",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9387,
+    "path" : "/DoNotOpen",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9405,
+    "path" : "/DoNotOpen/DoNotOpenDoor",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9404,
+    "path" : "/DoNotOpen/DoNotOpenWindow",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9396,
+    "path" : "/DoNotPress",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
     "id" : 9350,
-    "path" : "/DontRun",
+    "path" : "/DoNotRun",
+    "description" : "Не беги, не торопись, будь осторожен",
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
@@ -25,6 +110,78 @@
     }, {
       "text" : "не надо уходить"
     } ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9394,
+    "path" : "/Elevator",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9403,
+    "path" : "/GiveSign",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9399,
+    "path" : "/GoForward",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9361,
+    "path" : "/KeepCalm",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9389,
+    "path" : "/LeaveThings",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9362,
+    "path" : "/Open",
+    "description" : "Open the window, open the door",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9407,
+    "path" : "/Open/OpenDoor",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9406,
+    "path" : "/Open/OpenWindow",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9395,
+    "path" : "/PressAlarm",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9400,
+    "path" : "/Room",
+    "description" : "Иди в комнату, закройся в комнате",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
     "patterns" : [ ]
   }, {
     "id" : 9328,
@@ -42,11 +199,213 @@
     "patterns" : [ ],
     "slots" : [ ]
   }, {
-    "id" : 9353,
-    "path" : "/Новый интент",
+    "id" : 9393,
+    "path" : "/Stairs",
     "enabled" : true,
-    "shared" : false
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "лестница"
+    }, {
+      "text" : "лесенка"
+    }, {
+      "text" : "ступеньки"
+    }, {
+      "text" : "ступени"
+    } ],
+    "patterns" : [ "@Right" ]
+  }, {
+    "id" : 9402,
+    "path" : "/UseCloth",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ ],
+    "patterns" : [ ]
   } ],
-  "entities" : [ ],
+  "entities" : [ {
+    "entity" : {
+      "id" : 7675,
+      "name" : "Close",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ ]
+  }, {
+    "entity" : {
+      "id" : 7677,
+      "name" : "Left",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ ]
+  }, {
+    "entity" : {
+      "id" : 7679,
+      "name" : "Need",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ ]
+  }, {
+    "entity" : {
+      "id" : 7673,
+      "name" : "No",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ ]
+  }, {
+    "entity" : {
+      "id" : 7680,
+      "name" : "NoNeed",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ ]
+  }, {
+    "entity" : {
+      "id" : 7674,
+      "name" : "Open",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ ]
+  }, {
+    "entity" : {
+      "id" : 7676,
+      "name" : "Right",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 114434,
+      "type" : "synonyms",
+      "rule" : [ "вправо" ],
+      "value" : ""
+    }, {
+      "id" : 114435,
+      "type" : "synonyms",
+      "rule" : [ "в право" ],
+      "value" : ""
+    }, {
+      "id" : 114433,
+      "type" : "pattern",
+      "rule" : [ "(в ~правый ~сторона)" ],
+      "value" : ""
+    }, {
+      "id" : 114429,
+      "type" : "synonyms",
+      "rule" : [ "направо" ],
+      "value" : ""
+    }, {
+      "id" : 114430,
+      "type" : "synonyms",
+      "rule" : [ "на право" ],
+      "value" : ""
+    }, {
+      "id" : 114431,
+      "type" : "synonyms",
+      "rule" : [ "справа" ],
+      "value" : ""
+    }, {
+      "id" : 114432,
+      "type" : "synonyms",
+      "rule" : [ "с права" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 7672,
+      "name" : "Yes",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 114423,
+      "type" : "synonyms",
+      "rule" : [ "да" ],
+      "value" : ""
+    }, {
+      "id" : 114426,
+      "type" : "synonyms",
+      "rule" : [ "естественно" ],
+      "value" : ""
+    }, {
+      "id" : 114424,
+      "type" : "synonyms",
+      "rule" : [ "конечно" ],
+      "value" : ""
+    }, {
+      "id" : 114427,
+      "type" : "synonyms",
+      "rule" : [ "обязательно" ],
+      "value" : ""
+    }, {
+      "id" : 114425,
+      "type" : "synonyms",
+      "rule" : [ "разумеется" ],
+      "value" : ""
+    }, {
+      "id" : 114428,
+      "type" : "synonyms",
+      "rule" : [ "точно" ],
+      "value" : ""
+    } ]
+  } ],
   "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ]
 }
