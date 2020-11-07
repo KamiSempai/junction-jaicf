@@ -71,6 +71,7 @@ object FloorFiveLocationScenario : Scenario() {
                     intent("Jump")
                 }
                 action {
+                    reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav")}")
                     reactions.say("Aaaaaa! Я жив. Но кажется сломал ногу.")
                     context.checkpoints.WindowJump = true
                     reactions.go(EndGameScenario.state)
