@@ -12,6 +12,7 @@ object StartFloorScenario : Scenario() {
     private const val choosePath = "/location/choosePath"
     private const val elevator = "/location/elevator"
     private const val redButton = "/location/redButton"
+    private const val doorClosing = "/location/doorClosing"
     private const val doorOutside = "/location/doorOutside"
 
     private fun ActionContext.handleSmoke() {
@@ -36,12 +37,36 @@ object StartFloorScenario : Scenario() {
                     action {
                         context.checkpoints.LeaveDoorClosed = true
                         handleSmoke()
-                        reactions.go(choosePath)
+                        reactions.go(doorClosing)
                     }
                 }
 
                 fallback {
                     context.checkpoints.LeaveDoorClosed = true
+                    handleSmoke()
+                    reactions.go(choosePath)
+                }
+            }
+
+            state(doorClosing) {
+                action {
+                    reactions.say("Хорошо. Только найду ключ. Где же он?")
+                }
+
+                state("No") {
+                    activators {
+                        intent("No") // TODO add more intents
+                    }
+
+                    action {
+                        context.checkpoints.DoorClosedByKey = false
+                        handleSmoke()
+                        reactions.go(choosePath)
+                    }
+                }
+
+                fallback {
+                    context.checkpoints.DoorClosedByKey = true
                     handleSmoke()
                     reactions.go(choosePath)
                 }

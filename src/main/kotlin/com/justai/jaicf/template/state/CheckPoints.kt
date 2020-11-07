@@ -11,6 +11,7 @@ class CheckPoints(
     var GetExtraClothes: Boolean? by context.session
     var CheckDoorknob: Boolean? by context.session
     var LeaveDoorClosed: Boolean? by context.session
+    var DoorClosedByKey: Boolean? by context.session
     var ChooseEmergencyPath: EmergencyPaths? by context.session
     var ActivateFireAlarm: Boolean? by context.session
     var RunOnStair: Boolean? by context.session
