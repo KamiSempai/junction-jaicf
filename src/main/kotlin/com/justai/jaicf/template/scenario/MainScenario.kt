@@ -24,6 +24,7 @@ object MainScenario : Scenario(
                         "Я в панике!"
                     )
                 }
+                reactions.go(StartLocationScenario.state)
             }
         }
 
