@@ -269,6 +269,15 @@
     } ],
     "patterns" : [ ]
   }, {
+    "id" : 9636,
+    "path" : "/Jump",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@Jump"
+    } ],
+    "patterns" : [ ]
+  }, {
     "id" : 9361,
     "path" : "/KeepCalm",
     "enabled" : true,
@@ -449,6 +458,8 @@
       "text" : "используй @Cloth"
     }, {
       "text" : "заткни @Cloth щель"
+    }, {
+      "text" : "заткни щели"
     } ],
     "patterns" : [ ]
   }, {
@@ -539,6 +550,11 @@
       "client" : false
     },
     "records" : [ {
+      "id" : 133235,
+      "type" : "synonyms",
+      "rule" : [ "(одежд*)" ],
+      "value" : ""
+    }, {
       "id" : 123818,
       "type" : "pattern",
       "rule" : [ "(покрывал*/шарф*/простын*/одеял*/подушк*/прихватк*/скатерт*)" ],
