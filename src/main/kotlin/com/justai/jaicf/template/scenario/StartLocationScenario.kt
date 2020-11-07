@@ -62,7 +62,7 @@ object StartLocationScenario : Scenario() {
 
             state("No") {
                 activators {
-                    regex("No")
+                    intent("No")
                 }
                 action {
                     reactions.say("Отлично, понял.")
@@ -74,7 +74,7 @@ object StartLocationScenario : Scenario() {
             state("Yes")
             {
                 activators {
-                    regex("Yes")
+                    intent("Yes")
                 }
                 action {
                     reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
@@ -122,7 +122,7 @@ object StartLocationScenario : Scenario() {
 
             state("No") {
                 activators {
-                    regex("No")
+                    intent("No")
                 }
                 action {
                     context.checkpoints.GetExtraClothes = false
@@ -143,7 +143,7 @@ object StartLocationScenario : Scenario() {
 
             state("Yes") {
                 activators {
-                    regex("Yes")
+                    intent("Yes")
                 }
 
                 action {
@@ -221,7 +221,7 @@ object StartLocationScenario : Scenario() {
 
             state("Don't run") {
                 activators {
-                    regex("No")
+                    intent("No")
                 }
 
                 action {

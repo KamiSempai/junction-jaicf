@@ -291,6 +291,15 @@
     } ],
     "patterns" : [ ]
   }, {
+    "id" : 9510,
+    "path" : "/No",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@No"
+    } ],
+    "patterns" : [ ]
+  }, {
     "id" : 9362,
     "path" : "/Open",
     "description" : "Open the window, open the door",
@@ -392,6 +401,19 @@
     "shared" : false,
     "phrases" : [ {
       "text" : "@Take @Cloth"
+    }, {
+      "text" : "используй @Cloth"
+    }, {
+      "text" : "заткни @Cloth щель"
+    } ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9509,
+    "path" : "/Yes",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@Yes"
     } ],
     "patterns" : [ ]
   } ],
