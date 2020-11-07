@@ -1,8 +1,8 @@
 package com.justai.jaicf.template.scenario
 
+import com.justai.jaicf.context.ActionContext
 import com.justai.jaicf.model.scenario.Scenario
-import com.justai.jaicf.template.state.EmergencyPaths
-import com.justai.jaicf.template.state.checkpoints
+import com.justai.jaicf.template.state.*
 
 object StartRoomScenario : Scenario() {
 
@@ -11,8 +11,16 @@ object StartRoomScenario : Scenario() {
     private const val door = "/location/door"
     private const val things = "/location/things"
 
+    private fun ActionContext.handleSmoke() {
+        StartLocationSmoke.handleSmoke(this)
+    }
+
     init {
         state(state) {
+            action {
+                handleSmoke()
+            }
+
             state("call firefighters") {
                 activators {
                     intent("CallFirefighters")
@@ -20,8 +28,9 @@ object StartRoomScenario : Scenario() {
 
                 action {
                     reactions.say("Да, пожарных я уже вызвал, но когда они ещё приедут, а мне нужно что-то делать…")
-                    context.checkpoints.CallFirefighters = true
-                    context.checkpoints.KeepCalm = true
+                    checkpoints.CallFirefighters = true
+                    checkpoints.KeepCalm = true
+                    handleSmoke()
                     reactions.go(window)
                 }
             }
@@ -35,17 +44,27 @@ object StartRoomScenario : Scenario() {
                     reactions.say("Вдох-выдох, вдох-выдох")
                     context.checkpoints.CallFirefighters = false
                     context.checkpoints.KeepCalm = true
+                    handleSmoke()
                     reactions.go(window)
                 }
 
             }
 
             fallback {
+                handleSmoke()
                 reactions.say("АААААААААа!!!!!!")
                 context.checkpoints.CallFirefighters = false
                 context.checkpoints.KeepCalm = false
                 reactions.go(window)
             }
+        }
+
+        fun ActionContext.openWindow() {
+            reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
+            context.checkpoints.OpenWindow = true
+            StartLocationSmoke.increaseVelocity(this)
+            handleSmoke()
+            reactions.go(door)
         }
 
         state(window) {
@@ -60,6 +79,7 @@ object StartRoomScenario : Scenario() {
                 action {
                     reactions.say("Отлично, понял.")
                     context.checkpoints.OpenWindow = false
+                    handleSmoke()
                     reactions.go(door)
                 }
             }
@@ -69,18 +89,13 @@ object StartRoomScenario : Scenario() {
                     intent("Yes")
                 }
                 action {
-                    reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
-                    context.checkpoints.OpenWindow = true
-                    reactions.say("Too much smoke")
-                    reactions.go(door)
+                    openWindow()
                 }
             }
 
             fallback {
-                reactions.say("Открыл. Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
-                context.checkpoints.OpenWindow = true
-                reactions.say("Too much smoke")
-                reactions.go(door)
+                reactions.say("Открыл.")
+                openWindow()
             }
         }
 
@@ -103,6 +118,7 @@ object StartRoomScenario : Scenario() {
 
             fallback {
                 context.checkpoints.CheckDoorknob = false
+                handleSmoke()
                 reactions.go(things)
             }
         }
@@ -118,14 +134,18 @@ object StartRoomScenario : Scenario() {
                 }
                 action {
                     context.checkpoints.GetExtraClothes = false
+                    handleSmoke()
                     reactions.go(StartFloorScenario.state)
                 }
             }
 
             fallback {
                 context.checkpoints.GetExtraClothes = true
+                handleSmoke()
                 reactions.go(StartFloorScenario.state)
             }
         }
     }
+
+
 }
