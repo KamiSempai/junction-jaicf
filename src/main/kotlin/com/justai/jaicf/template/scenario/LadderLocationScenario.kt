@@ -46,6 +46,7 @@ object LadderLocationScenario : Scenario() {
                     }
                     action {
                         reactions.say("Отлично, кухня открыта, запрусь здесь.")
+                        context.checkpoints.GoToSmoke = false
                         reactions.go(FloorFiveLocationScenario.state)
                     }
                 }
@@ -56,6 +57,7 @@ object LadderLocationScenario : Scenario() {
                     }
                     action {
                         reactions.say("Кх-кх-кх! Ффу! Ничего не видно, я только зря дыма наглотался. Пойду лучше закроюсь в комнате и буду ждать пожарных.")
+                        context.checkpoints.GoToSmoke = true
                         reactions.go(FloorFiveLocationScenario.state)
                     }
                 }
