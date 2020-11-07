@@ -15,7 +15,7 @@ object StartRoomScenario : Scenario() {
         state(state) {
             state("call firefighters") {
                 activators {
-                    regex("call firefighters")
+                    intent("CallFirefighters")
                 }
 
                 action {
@@ -28,7 +28,7 @@ object StartRoomScenario : Scenario() {
 
             state("keep calm") {
                 activators {
-                    regex("keep calm")
+                    intent("KeepCalm")
                 }
 
                 action {
@@ -55,7 +55,7 @@ object StartRoomScenario : Scenario() {
 
             state("No") {
                 activators {
-                    regex("No")
+                    intent("No")
                 }
                 action {
                     reactions.say("Отлично, понял.")
@@ -66,7 +66,7 @@ object StartRoomScenario : Scenario() {
 
             state("Yes") {
                 activators {
-                    regex("Yes")
+                    intent("Yes")
                 }
                 action {
                     reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
@@ -91,7 +91,7 @@ object StartRoomScenario : Scenario() {
 
             state("Check doorknob") {
                 activators {
-                    regex("Check doorknob")
+                    intent("CheckDoorknob")
                 }
 
                 action {
@@ -114,7 +114,7 @@ object StartRoomScenario : Scenario() {
 
             state("No") {
                 activators {
-                    regex("No")
+                    intent("No")
                 }
                 action {
                     context.checkpoints.GetExtraClothes = false

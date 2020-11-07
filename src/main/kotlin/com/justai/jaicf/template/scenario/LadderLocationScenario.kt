@@ -18,7 +18,7 @@ object LadderLocationScenario : Scenario() {
 
             state("Don't run") {
                 activators {
-                    regex("No")
+                    intent("No")
                 }
 
                 action {

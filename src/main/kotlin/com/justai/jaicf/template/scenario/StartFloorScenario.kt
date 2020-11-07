@@ -25,7 +25,7 @@ object StartFloorScenario : Scenario() {
 
                 state("Yes") {
                     activators {
-                        regex("Yes")
+                        intent("Yes")
                     }
 
                     action {
@@ -81,7 +81,7 @@ object StartFloorScenario : Scenario() {
                 state("Push it!")
                 {
                     activators {
-                        regex("Push")
+                        intent("PressAlarm")
                     }
                     action {
                         reactions.say("Врубилась тревога")
