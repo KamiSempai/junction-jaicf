@@ -18,7 +18,7 @@ object LadderLocationScenario : Scenario() {
 
             state("Don't run") {
                 activators {
-                    intent("No")
+                    intent("DoNotRun")
                 }
 
                 action {
@@ -56,7 +56,8 @@ object LadderLocationScenario : Scenario() {
                         intent("GoForward")
                     }
                     action {
-                        reactions.say("Кх-кх-кх! Ффу! Ничего не видно, я только зря дыма наглотался. Пойду лучше закроюсь в комнате и буду ждать пожарных.")
+                        reactions.audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_кашель3с.wav")
+                        reactions.say("Ничего не видно, я только зря дыма наглотался. Пойду лучше закроюсь в комнате и буду ждать пожарных.")
                         context.checkpoints.GoToSmoke = true
                         reactions.go(FloorFiveLocationScenario.state)
                     }
