@@ -85,7 +85,7 @@ object StartFloorScenario : Scenario() {
                 }
 
                 action {
-                    reactions.say("Да, кажется, что-то такое нам и говорили на инструктаже по безопасности, жаль, я всё прослушал. Бегу.")
+                    reactions.say("Да. Кажется, на инструктаже по безопасности нам говорили не пользоваться лифтом при пожаре, жаль, я всё прослушал. Бег+у.")
                     context.checkpoints.ChooseEmergencyPath = EmergencyPaths.Stair
                     handleSmoke()
                     reactions.go(redButton)
@@ -103,7 +103,7 @@ object StartFloorScenario : Scenario() {
         state(elevator) {
             action {
                 reactions.say("Окей, я добежал до лифтов, вызвал.")
-                reactions.say("Похоже, лифты отключились, и я только зря потратил время… Побегу на лестницу.")
+                reactions.say("$breakS{5} Похоже, лифты отключились, и я только зря потратил время. Побегу на лестницу.")
                 context.checkpoints.KeepCalm = false
                 handleSmoke()
                 reactions.go(redButton)
