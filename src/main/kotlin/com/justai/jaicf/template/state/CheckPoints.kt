@@ -17,5 +17,7 @@ class CheckPoints(
     var RunOnStair: Boolean? by context.session
     var GoToSmoke: Boolean? by context.session
     var FillGap: Boolean? by context.session
+    var FillGapWithWetCloth: Boolean? by context.session
     var AlertFirefighters: Boolean? by context.session
+    var WindowJump: Boolean? by context.session
 }

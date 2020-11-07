@@ -1,14 +1,29 @@
 package com.justai.jaicf.template.scenario
 
+import com.justai.jaicf.activator.intent.intent
+import com.justai.jaicf.context.ActionContext
+import com.justai.jaicf.helpers.ssml.break1s
+import com.justai.jaicf.helpers.ssml.breakS
 import com.justai.jaicf.model.scenario.Scenario
+import com.justai.jaicf.template.state.FloorFiveRoomLocationSmoke
 import com.justai.jaicf.template.state.checkpoints
 
 object FloorFiveLocationScenario : Scenario() {
 
     const val state = "/location/floor5"
     const val door = "/location/floor5/door"
-    const val saved = "/location/floor5/saved"
+    const val window = "/location/floor5/window"
     const val firefighters = "/location/floor5/firefighters"
+
+
+    private fun ActionContext.handleSmoke() {
+        FloorFiveRoomLocationSmoke.handleSmoke(this)
+    }
+
+    private fun ActionContext.goToState(state: String) {
+        handleSmoke()
+        reactions.go(state)
+    }
 
     init {
         state(state) {
@@ -18,38 +33,76 @@ object FloorFiveLocationScenario : Scenario() {
 
             state(door) {
                 activators {
-                    intent("CloseDoor")
+                    intent("UseWetCloth")
                     intent("UseCloth")
                 }
                 action {
-                    reactions.say("Кажется, я слышу сирену! Пожарные приехали, ура, меня спасут! Можно расслабиться и ничего не делать.")
                     context.checkpoints.FillGap = true
+                    context.checkpoints.FillGapWithWetCloth = this.activator.intent?.intent == "UseWetCloth"
                     reactions.go(firefighters)
                 }
                 fallback{
-                    reactions.say("Кажется, я слышу сирену! Пожарные приехали, ура, меня спасут! Можно расслабиться и ничего не делать.")
                     context.checkpoints.FillGap = false
+                    reactions.go(firefighters)
+                }
+            }
+
+            state(window) {
+                action {
+                    reactions.say("Тут у окна есть высокое дерево. Я точно смогу до него допрыгнуть. Нужно только разбежаться.")
+                }
+
+                state("DoNotJump") {
+                    activators {
+                        intent("DoNot")
+                        intent("DoNotJump")
+                    }
+                    action {
+                        reactions.say("Да. Думаю это была плохая идея. Лучше дождусь пожарных.")
+                        context.checkpoints.WindowJump = false
+                        reactions.go(firefighters)
+                    }
+                }
+
+                state("Jump") {
+                    activators {
+                        intent("Yes")
+                        intent("Jump")
+                    }
+                    action {
+                        reactions.say("Aaaaaa! Я жив. Но кажется сломал ногу.")
+                        context.checkpoints.WindowJump = true
+                        reactions.go(EndGameScenario.state)
+                    }
+                }
+                fallback{
+                    reactions.say("Мне страшно. Думаю это была плохая идея. Лучше дождусь пожарных.")
+                    context.checkpoints.WindowJump = null
                     reactions.go(firefighters)
                 }
             }
             
             state(firefighters){
-                state(saved){
+                action {
+                    reactions.say("Кажется, я слышу сирену! Пожарные приехали, ура, меня спасут! Можно расслабиться и ничего не делать.")
+                }
+
+                state("Saved"){
                     activators{
                         intent("GiveSign")
                     }
                     action{
-                        reactions.say("Меня сразу же заметили и подали штурмовую лестницу, и буквально через пару минут я уже был внизу. Ура, я спасён!")
+                        reactions.say("Похоже, пожарные меня заметили! А вот и штурмовая лестница. Вылезаю через окно, спускаюсь. ${breakS(2)} Я в безопасности!")
                         context.checkpoints.AlertFirefighters = true
                         reactions.go(EndGameScenario.state)
                     }
-                    
-                    fallback{
-                        reactions.say("Пять, десять, пятнадцать минут… Меня когда-нибудь найдут? Что же делать?! О, ура, кажется, я слышу пожарных в коридоре, наконец-то!")
-                        context.checkpoints.AlertFirefighters = false
-                        context.checkpoints.KeepCalm = false
-                        reactions.go(EndGameScenario.state)
-                    }
+                }
+
+                fallback{
+                    reactions.say("Пять. Десять. Пятнадцать минут. Ну когда же меня найдут? Что же делать?! ${breakS(2)} Ура! Кажется, я слышу пожарных в коридоре. Наконец-то!")
+                    context.checkpoints.AlertFirefighters = false
+                    context.checkpoints.KeepCalm = false
+                    reactions.go(EndGameScenario.state)
                 }
             }
         }
