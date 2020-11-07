@@ -30,7 +30,7 @@ object MainScenario : Scenario(
 
         state("Start Game") {
             activators {
-                regex("/next")
+                intent("/Run")
             }
 
             action {
