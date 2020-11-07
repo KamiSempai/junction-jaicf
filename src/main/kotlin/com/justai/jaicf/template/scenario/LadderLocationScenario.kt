@@ -5,6 +5,8 @@ import com.justai.jaicf.model.scenario.Scenario
 object LadderLocationScenario : Scenario() {
 
     const val state = "/location/ladder"
+    private const val smokedLadder = "/locations/ladder/downstairs"
+    private const val kitchen = "/locations/ladder/kitchen"
 
     init {
         state(state) {
@@ -12,7 +14,7 @@ object LadderLocationScenario : Scenario() {
                 reactions.say("Я на площадке пятого этажа, но снизу валит дым! Что мне делать?")
             }
             
-             state("next_good"){
+             state(kitchen){
                 activators{
                     intent("Room")
                 }
@@ -22,7 +24,7 @@ object LadderLocationScenario : Scenario() {
                 }
             }
 
-            state("next_bad") {
+            state(smokedLadder) {
                 activators {
                     intent("GoForvard")
                 }

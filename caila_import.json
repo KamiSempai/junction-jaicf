@@ -78,56 +78,92 @@
     "path" : "/Close/CloseWindow",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Close окно"
+    }, {
+      "text" : "@Close окошко"
+    }, {
+      "text" : "@Close форточку"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9391,
     "path" : "/DoNotClose",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Close"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9411,
     "path" : "/DoNotClose/DoNotCloseDoor",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Close дверь"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9412,
     "path" : "/DoNotClose/DoNotCloseWindow",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Close окно"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9387,
     "path" : "/DoNotOpen",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Open"
+    }, {
+      "text" : "@NoNeed @Open"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9405,
     "path" : "/DoNotOpen/DoNotOpenDoor",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Open дверь"
+    }, {
+      "text" : "@No @Open дверцу"
+    }, {
+      "text" : "@No @Open дверку"
+    }, {
+      "text" : "@No @Open вход"
+    }, {
+      "text" : "@NoNeed @Open дверь"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9404,
     "path" : "/DoNotOpen/DoNotOpenWindow",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Open окно"
+    }, {
+      "text" : "@No @Open окошко"
+    }, {
+      "text" : "@No @Open форточку"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9396,
     "path" : "/DoNotPress",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@No @Press"
+    }, {
+      "text" : "@NoNeed @Press"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9350,
@@ -150,7 +186,21 @@
     "path" : "/Elevator",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "лифт"
+    }, {
+      "text" : "иди к лифту"
+    }, {
+      "text" : "езжай на лифте"
+    }, {
+      "text" : "едь на лифте"
+    }, {
+      "text" : "@No лестница"
+    }, {
+      "text" : "иди @Left"
+    }, {
+      "text" : "беги @Left"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9403,
@@ -207,7 +257,13 @@
     "path" : "/PressAlarm",
     "enabled" : true,
     "shared" : false,
-    "phrases" : [ ],
+    "phrases" : [ {
+      "text" : "@Press"
+    }, {
+      "text" : "@Press кнопку"
+    }, {
+      "text" : "@Press сигнализацию"
+    } ],
     "patterns" : [ ]
   }, {
     "id" : 9400,
@@ -251,6 +307,12 @@
       "text" : "иди @Right"
     }, {
       "text" : "беги @Right"
+    }, {
+      "text" : "иди на лестницу"
+    }, {
+      "text" : "беги по лестнице"
+    }, {
+      "text" : "@No лифт"
     } ],
     "patterns" : [ ]
   }, {
@@ -320,7 +382,22 @@
       "fuzzySearch" : false,
       "client" : false
     },
-    "records" : [ ]
+    "records" : [ {
+      "id" : 123795,
+      "type" : "synonyms",
+      "rule" : [ "влево" ],
+      "value" : ""
+    }, {
+      "id" : 123796,
+      "type" : "pattern",
+      "rule" : [ "(в ~левый ~сторона)" ],
+      "value" : ""
+    }, {
+      "id" : 123794,
+      "type" : "synonyms",
+      "rule" : [ "налево", "на лево" ],
+      "value" : ""
+    } ]
   }, {
     "entity" : {
       "id" : 7679,
@@ -350,7 +427,22 @@
       "fuzzySearch" : false,
       "client" : false
     },
-    "records" : [ ]
+    "records" : [ {
+      "id" : 123801,
+      "type" : "synonyms",
+      "rule" : [ "нет" ],
+      "value" : ""
+    }, {
+      "id" : 123803,
+      "type" : "synonyms",
+      "rule" : [ "ни за что" ],
+      "value" : ""
+    }, {
+      "id" : 123802,
+      "type" : "pattern",
+      "rule" : [ "никак*" ],
+      "value" : ""
+    } ]
   }, {
     "entity" : {
       "id" : 7680,
@@ -365,7 +457,12 @@
       "fuzzySearch" : false,
       "client" : false
     },
-    "records" : [ ]
+    "records" : [ {
+      "id" : 123800,
+      "type" : "synonyms",
+      "rule" : [ "не надо", "не нужно", "не стоит", "ненадо", "нельзя" ],
+      "value" : ""
+    } ]
   }, {
     "entity" : {
       "id" : 7674,
@@ -380,7 +477,37 @@
       "fuzzySearch" : false,
       "client" : false
     },
-    "records" : [ ]
+    "records" : [ {
+      "id" : 123797,
+      "type" : "pattern",
+      "rule" : [ "(откро*/открыва*/открыть)" ],
+      "value" : ""
+    }, {
+      "id" : 123798,
+      "type" : "pattern",
+      "rule" : [ "(распахн*/отопри/отпира*/отпер*)" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 7683,
+      "name" : "Press",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 123799,
+      "type" : "pattern",
+      "rule" : [ "(дави*/надави*/нажим*/нажат*/*жми)" ],
+      "value" : ""
+    } ]
   }, {
     "entity" : {
       "id" : 7676,
