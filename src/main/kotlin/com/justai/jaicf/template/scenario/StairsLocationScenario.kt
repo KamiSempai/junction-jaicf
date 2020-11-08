@@ -4,7 +4,7 @@ import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.model.scenario.Scenario
 import com.justai.jaicf.template.state.checkpoints
 
-object LadderLocationScenario : Scenario() {
+object StairsLocationScenario : Scenario() {
 
     const val state = "/location/ladder"
     private const val forthFlat = "/location/forthFlat"
