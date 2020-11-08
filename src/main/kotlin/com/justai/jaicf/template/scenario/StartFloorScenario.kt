@@ -125,7 +125,7 @@ object StartFloorScenario : Scenario() {
                     intent("PressAlarm")
                 }
                 action {
-                    reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_сигнализация3с.wav.wav"))
+                    reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_сигнализация3с.wav"))
                     reactions.say("Включилась пожарная тревога")
                     context.checkpoints.ActivateFireAlarm = true
                     handleSmoke()
