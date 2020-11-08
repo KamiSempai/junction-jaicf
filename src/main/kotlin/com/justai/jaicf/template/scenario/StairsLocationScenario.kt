@@ -12,7 +12,7 @@ object StairsLocationScenario : Scenario() {
     init {
         state(state) {
             action {
-                reactions.say("Так, я на лестнице, бегу вниз. Тут, правда, очень темно, поэтому я лучше ускорюсь, чтобы поскорее отсюда выбраться.")
+                reactions.say("Так, я на лестнице, бег+у вниз. Тут, правда, очень темно, поэтому я лучше ускорюсь, чтобы поскорее отсюда выбраться.")
             }
 
             state("Don't run") {
@@ -22,7 +22,7 @@ object StairsLocationScenario : Scenario() {
 
                 action {
                     reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_бег+дыхание.wav"))
-                    reactions.say("Ступенька, ещё ступенька и… дошёл, отлично.")
+                    reactions.say("Ступенька, ещё ступенька, и дошёл. Отлично.")
                     context.checkpoints.RunOnStair = false
                     reactions.go(forthFlat)
                 }
@@ -31,7 +31,7 @@ object StairsLocationScenario : Scenario() {
             fallback {
                 reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_бег+дыхание.wav"))
                 reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav"))
-                reactions.say("Чёрт, я споткнулся на лестнице и, кажется, подвернул ногу! Как же больно. Хорошо хоть идти могу. Но такими темпами я могу и не успеть выбраться!")
+                reactions.say("Чёрт, я споткнулся на лестнице и, кажется, подвернул ногу! Как же больно. Хорошо хоть могу идти. Но этак я могу и не успеть выбраться!")
                 context.checkpoints.RunOnStair = true
                 context.checkpoints.KeepCalm = false
                 reactions.go(forthFlat)
@@ -48,7 +48,7 @@ object StairsLocationScenario : Scenario() {
                     intent("Room")
                 }
                 action {
-                    reactions.say("Отлично, кухня открыта, запрусь здесь.")
+                    reactions.say("Отлично, кухня открыта. Запрусь здесь.")
                     context.checkpoints.GoToSmoke = false
                     reactions.go(FloorFiveLocationScenario.state)
                 }
@@ -67,7 +67,7 @@ object StairsLocationScenario : Scenario() {
             }
 
             fallback {
-                reactions.say("Я тебя не расслышал, но тут есть открытая кухня, пойду туда")
+                reactions.say("Я тебя не расслышал, но тут есть открытая кухня. Пойду туда.")
                 reactions.go(FloorFiveLocationScenario.state)
             }
         }

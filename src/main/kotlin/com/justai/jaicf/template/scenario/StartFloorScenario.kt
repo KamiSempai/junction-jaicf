@@ -79,7 +79,7 @@ object StartFloorScenario : Scenario() {
 
         state(choosePath) {
             action {
-                reactions.say("Окей, я в коридоре, тут тоже дым. Непонятно, что и где горит. Надо эвакуироваться. Лестница справа, лифты слева, куда бежать?")
+                reactions.say("Окей, я в коридоре, тут тоже дым. Непонятно, что и где горит, надо эвакуироваться. Лестница справа, лифты слева, куда бежать?")
             }
 
             state("Stair") {
@@ -105,7 +105,7 @@ object StartFloorScenario : Scenario() {
 
         state(elevator) {
             action {
-                reactions.say("Окей, я добежал до лифтов, вызвал.")
+                reactions.say("Окей, я добежал до лифтов и вызвал.")
                 reactions.say("${delayS(5)}Похоже, лифты отключились, и я только зря потратил время. Побегу на лестницу.")
                 context.checkpoints.KeepCalm = false
                 handleSmoke()
@@ -115,7 +115,7 @@ object StartFloorScenario : Scenario() {
 
         state(redButton) {
             action {
-                reactions.say("Тут на стене какая-то красная кнопка под стеклом, нажать или не тратить время?")
+                reactions.say("Тут на стене какая-то красная кнопка под стеклом. Нажать или не тратить время?")
             }
 
             state("Push it!")
@@ -125,7 +125,7 @@ object StartFloorScenario : Scenario() {
                 }
                 action {
                     reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_сигнализация3с.wav.wav"))
-                    reactions.say("Врубилась тревога")
+                    reactions.say("Включилась пожарная тревога")
                     context.checkpoints.ActivateFireAlarm = true
                     handleSmoke()
                     reactions.go(StairsLocationScenario.state)
