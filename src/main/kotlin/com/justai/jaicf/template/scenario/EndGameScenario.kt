@@ -12,7 +12,14 @@ object EndGameScenario : Scenario() {
     init {
         state(state) {
             action {
-                reactions.say("Thank you! I'm saved!")
+                reactions.say("Спасибо! Я спасен!")
+                checkpoints.getCompactNegative()?.let {
+                    reactions.say("Но тебе, все таки, стоит повторить правила поведения при пожаре.")
+                    reactions.say("Ошибки были в случаях с $it")
+                } ?: {
+                    reactions.say("Спасателей лучше чем ты я не встречал.")
+                    reactions.say("Всё сделалано правильно! Ни одной ошибки.")
+                }()
             }
 
             state("restart") {
@@ -21,7 +28,14 @@ object EndGameScenario : Scenario() {
                 }
 
                 action {
-                    reactions.say("Restarting the game")
+                    context.run {
+                        cleanSessionData()
+                        dialogContext.run {
+                            currentState = "/"
+                            currentContext = "/"
+                        }
+                    }
+                    reactions.say("Начинаем сначала.")
                     reactions.go(MainScenario.state)
                 }
             }
@@ -50,11 +64,11 @@ object EndGameScenario : Scenario() {
                 }
 
                 action {
-                    val message = context.checkpoints.getCompactNegative()
-                    if (message == null)
-                        reactions.say("Ты всё сделал правильно!")
-                    else
-                        reactions.say("Ты ошибся в случаях с $message")
+                    context.checkpoints.getCompactNegative()?.let {
+                        reactions.say("Ошибки были в случаях с $it")
+                    } ?: {
+                        reactions.say("Всё сделалано правильно! Ни одной ошибки.")
+                    }()
                 }
             }
         }

@@ -36,7 +36,7 @@ fun CheckPoints.getReadableResults() : Pair<List<String>, List<String>> {
 
     when (ChooseEmergencyPath) {
         EmergencyPaths.Stair -> positive.add("Вы правильно посоветовали Никите пойти по лестнице. Лифт при пожаре может быть смертельно опасен!")
-        EmergencyPaths.Elevator -> negative.add("Во время пожара категорически нельзя пользоваться лифтом! Во время пожара обычно отключается электричество, вы можете застрять, что в такой ситуации особенно опасно. А ещё шахта лифта во время пожара работает как вытяжка, и в ней можно просто задохнуться. Хорошо, что Никита всё-таки пошёл пешком.")
+        else -> negative.add("Во время пожара категорически нельзя пользоваться лифтом! Во время пожара обычно отключается электричество, вы можете застрять, что в такой ситуации особенно опасно. А ещё шахта лифта во время пожара работает как вытяжка, и в ней можно просто задохнуться. Хорошо, что Никита всё-таки пошёл пешком.")
     }
 
     when (ActivateFireAlarm) {
@@ -85,7 +85,7 @@ fun CheckPoints.getCompactNegative() : String? {
     if (CheckDoorknob == false || LeaveDoorClosed == false || DoorClosedByKey == true)
         messages.add("дверью из комнаты")
 
-    if (ChooseEmergencyPath == EmergencyPaths.Elevator)
+    if (ChooseEmergencyPath != EmergencyPaths.Stair)
         messages.add("лифтом")
 
     if (ActivateFireAlarm == false)
