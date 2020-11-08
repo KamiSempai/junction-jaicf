@@ -49,7 +49,7 @@ object StartFloorScenario : Scenario() {
             }
 
             fallbackOrSilence {
-                context.checkpoints.LeaveDoorClosed = true
+                context.checkpoints.LeaveDoorClosed = false
                 handleSmoke()
                 reactions.go(choosePath)
             }
