@@ -25,6 +25,7 @@ object EndGameScenario : Scenario() {
             state("restart") {
                 activators {
                     regex("/restart")
+                    intent("Restart")
                 }
 
                 action {
