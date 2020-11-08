@@ -7,7 +7,7 @@ object MainScenario : Scenario(
     dependencies = listOf(
         StartRoomScenario,
         StartFloorScenario,
-        LadderLocationScenario,
+        StairsLocationScenario,
         FloorFiveLocationScenario,
         EndGameScenario
     )

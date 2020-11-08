@@ -126,14 +126,14 @@ object StartFloorScenario : Scenario() {
                     reactions.say("Врубилась тревога")
                     context.checkpoints.ActivateFireAlarm = true
                     handleSmoke()
-                    reactions.go(LadderLocationScenario.state)
+                    reactions.go(StairsLocationScenario.state)
                 }
             }
 
             fallback {
                 context.checkpoints.ActivateFireAlarm = false
                 handleSmoke()
-                reactions.go(LadderLocationScenario.state)
+                reactions.go(StairsLocationScenario.state)
             }
         }
     }
