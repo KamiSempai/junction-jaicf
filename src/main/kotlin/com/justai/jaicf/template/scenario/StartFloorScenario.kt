@@ -1,9 +1,11 @@
 package com.justai.jaicf.template.scenario
 
+import com.justai.jaicf.channel.jaicp.channels.TelephonyEvents
 import com.justai.jaicf.context.ActionContext
 import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.model.scenario.Scenario
 import com.justai.jaicf.template.delayS
+import com.justai.jaicf.template.fallbackOrSilence
 import com.justai.jaicf.template.state.EmergencyPaths
 import com.justai.jaicf.template.state.StartLocationSmoke
 import com.justai.jaicf.template.state.checkpoints
@@ -46,7 +48,7 @@ object StartFloorScenario : Scenario() {
                 }
             }
 
-            fallback {
+            fallbackOrSilence {
                 context.checkpoints.LeaveDoorClosed = true
                 handleSmoke()
                 reactions.go(choosePath)
@@ -70,7 +72,7 @@ object StartFloorScenario : Scenario() {
                 }
             }
 
-            fallback {
+            fallbackOrSilence {
                 context.checkpoints.DoorClosedByKey = true
                 handleSmoke()
                 reactions.go(choosePath)
@@ -95,7 +97,7 @@ object StartFloorScenario : Scenario() {
                 }
             }
 
-            fallback {
+            fallbackOrSilence {
                 reactions.say("Побежал к лифтам")
                 context.checkpoints.ChooseEmergencyPath = EmergencyPaths.Elevator
                 handleSmoke()
@@ -118,8 +120,7 @@ object StartFloorScenario : Scenario() {
                 reactions.say("Тут на стене какая-то красная кнопка под стеклом. Нажать или не тратить время?")
             }
 
-            state("Push it!")
-            {
+            state("Push it!") {
                 activators {
                     intent("PressAlarm")
                 }
@@ -132,7 +133,7 @@ object StartFloorScenario : Scenario() {
                 }
             }
 
-            fallback {
+            fallbackOrSilence {
                 context.checkpoints.ActivateFireAlarm = false
                 handleSmoke()
                 reactions.go(StairsLocationScenario.state)

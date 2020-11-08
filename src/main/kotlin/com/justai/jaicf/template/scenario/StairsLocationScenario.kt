@@ -2,6 +2,7 @@ package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.model.scenario.Scenario
+import com.justai.jaicf.template.fallbackOrSilence
 import com.justai.jaicf.template.state.checkpoints
 
 object StairsLocationScenario : Scenario() {
@@ -28,7 +29,7 @@ object StairsLocationScenario : Scenario() {
                 }
             }
 
-            fallback {
+            fallbackOrSilence {
                 reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_бег+дыхание.wav"))
                 reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav"))
                 reactions.say("Чёрт, я споткнулся на лестнице и, кажется, подвернул ногу! Как же больно. Хорошо хоть могу идти. Но этак я могу и не успеть выбраться!")
@@ -66,7 +67,7 @@ object StairsLocationScenario : Scenario() {
                 }
             }
 
-            fallback {
+            fallbackOrSilence {
                 reactions.say("Я тебя не расслышал, но тут есть открытая кухня. Пойду туда.")
                 reactions.go(FloorFiveLocationScenario.state)
             }

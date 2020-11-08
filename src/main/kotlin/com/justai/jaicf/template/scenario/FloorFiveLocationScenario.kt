@@ -5,6 +5,7 @@ import com.justai.jaicf.context.ActionContext
 import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.model.scenario.Scenario
 import com.justai.jaicf.template.delayS
+import com.justai.jaicf.template.fallbackOrSilence
 import com.justai.jaicf.template.state.FloorFiveRoomLocationSmoke
 import com.justai.jaicf.template.state.checkpoints
 
@@ -42,7 +43,7 @@ object FloorFiveLocationScenario : Scenario() {
                 }
             }
 
-            fallback{
+            fallbackOrSilence {
                 context.checkpoints.FillGap = false
                 reactions.go(window)
             }
@@ -78,7 +79,7 @@ object FloorFiveLocationScenario : Scenario() {
                 }
             }
 
-            fallback{
+            fallbackOrSilence {
                 reactions.say("Мне страшно. Думаю, это была плохая идея. Лучше дождусь пожарных.")
                 context.checkpoints.WindowJump = null
                 reactions.go(firefighters)
@@ -101,7 +102,7 @@ object FloorFiveLocationScenario : Scenario() {
                 }
             }
 
-            fallback{
+            fallbackOrSilence {
                 reactions.say("Пять. Десять. Пятнадцать минут. Ну когда же меня найдут? Что же делать?! ${delayS(2)}Ура! Кажется, я слышу пожарных в коридоре. Наконец-то!")
                 context.checkpoints.AlertFirefighters = false
                 context.checkpoints.KeepCalm = false
