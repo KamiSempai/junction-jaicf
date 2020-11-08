@@ -22,7 +22,7 @@ object StartRoomScenario : Scenario() {
     }
 
     private fun ActionContext.openWindow() {
-        reactions.say("Кажется, стало только хуже, дыма резко стало больше, кажется, я даже вижу огонёк.")
+        reactions.say("Похоже, стало только хуже, дыма резко стало больше. Кажется, я даже вижу огонёк.")
         context.checkpoints.OpenWindow = true
         StartLocationSmoke.increaseVelocity(this)
         goToState(door)
@@ -144,7 +144,7 @@ object StartRoomScenario : Scenario() {
 
         state(things) {
             action {
-                reactions.say("Стоп, надо собрать с собой учебники библиотечные и конспекты, новые джинсы, а вдруг сгорят? Так, где тут чемодан…")
+                reactions.say("Стоп. Надо собрать с собой учебники библиотечные, конспекты, новые джинсы. А вдруг сгорят? Так, где тут чемодан?")
             }
             
             state("No") {

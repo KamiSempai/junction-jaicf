@@ -1,6 +1,7 @@
 package com.justai.jaicf.template.state
 
 import com.justai.jaicf.context.ActionContext
+import com.justai.jaicf.helpers.ssml.audio
 
 object StartLocationSmoke {
 
@@ -17,7 +18,10 @@ object StartLocationSmoke {
         smoke.handle {
             when(it) {
                 0 -> reactions.say("Дыма становится все больше.")
-                1 -> reactions.say("Кхе-Кхе. Тут все в дыму. Нужно бежать отсюда!")
+                1 -> {
+                    reactions.say("${audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_кашель3с.wav")}")
+                    reactions.say("Тут всё в дыму. Нужно бежать отсюда!")
+                }
             }
         }
     }

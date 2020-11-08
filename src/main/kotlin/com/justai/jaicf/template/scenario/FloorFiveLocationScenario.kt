@@ -27,7 +27,7 @@ object FloorFiveLocationScenario : Scenario() {
     init {
         state(state) {
             action {
-                reactions.say("Закрыл дверь, что дальше с ней делать?")
+                reactions.say("Закрыл дверь. Что дальше с ней делать?")
             }
 
             state("door") {
@@ -59,7 +59,7 @@ object FloorFiveLocationScenario : Scenario() {
                     intent("DoNotJump")
                 }
                 action {
-                    reactions.say("Да. Думаю это была плохая идея. Лучше дождусь пожарных.")
+                    reactions.say("Да. Думаю, это была плохая идея. Лучше дождусь пожарных.")
                     context.checkpoints.WindowJump = false
                     reactions.go(firefighters)
                 }
@@ -72,14 +72,14 @@ object FloorFiveLocationScenario : Scenario() {
                 }
                 action {
                     reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_падение_new.wav"))
-                    reactions.say("Aaaaaa! Я жив. Но кажется сломал ногу.")
+                    reactions.say("Уфф. Я жив. Но, кажется, сломал ногу")
                     context.checkpoints.WindowJump = true
                     reactions.go(EndGameScenario.state)
                 }
             }
 
             fallback{
-                reactions.say("Мне страшно. Думаю это была плохая идея. Лучше дождусь пожарных.")
+                reactions.say("Мне страшно. Думаю, это была плохая идея. Лучше дождусь пожарных.")
                 context.checkpoints.WindowJump = null
                 reactions.go(firefighters)
             }
@@ -87,7 +87,7 @@ object FloorFiveLocationScenario : Scenario() {
 
         state(firefighters){
             action {
-                reactions.say("Кажется, я слышу сирену! Пожарные приехали, ура, меня спасут! Можно расслабиться и ничего не делать.")
+                reactions.say("Кажется, я слышу сирену! Пожарные приехали! Ура! Меня спасут! Можно расслабиться и ничего не делать.")
             }
 
             state("Saved"){
