@@ -44,6 +44,7 @@ object EndGameScenario : Scenario() {
             state("results") {
                 activators {
                     regex("/results")
+                    intent("Details")
                 }
 
                 action {
@@ -62,6 +63,7 @@ object EndGameScenario : Scenario() {
             state("small results") {
                 activators {
                     regex("/compact")
+                    intent("Repeat")
                 }
 
                 action {

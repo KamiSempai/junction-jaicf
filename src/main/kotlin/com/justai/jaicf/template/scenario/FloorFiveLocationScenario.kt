@@ -95,14 +95,14 @@ object FloorFiveLocationScenario : Scenario() {
                     intent("GiveSign")
                 }
                 action{
-                    reactions.say("Похоже, пожарные меня заметили! А вот и штурмовая лестница. Вылезаю через окно, спускаюсь. ${delayS(2)} Я в безопасности!")
+                    reactions.say("Похоже, пожарные меня заметили! А вот и штурмовая лестница. Вылезаю через окно, спускаюсь. ${delayS(2)}Я в безопасности!")
                     context.checkpoints.AlertFirefighters = true
                     reactions.go(EndGameScenario.state)
                 }
             }
 
             fallback{
-                reactions.say("Пять. Десять. Пятнадцать минут. Ну когда же меня найдут? Что же делать?! ${delayS(2)} Ура! Кажется, я слышу пожарных в коридоре. Наконец-то!")
+                reactions.say("Пять. Десять. Пятнадцать минут. Ну когда же меня найдут? Что же делать?! ${delayS(2)}Ура! Кажется, я слышу пожарных в коридоре. Наконец-то!")
                 context.checkpoints.AlertFirefighters = false
                 context.checkpoints.KeepCalm = false
                 reactions.go(EndGameScenario.state)

@@ -1,6 +1,7 @@
 package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.context.ActionContext
+import com.justai.jaicf.helpers.ssml.audio
 import com.justai.jaicf.model.scenario.Scenario
 import com.justai.jaicf.template.delayS
 import com.justai.jaicf.template.state.EmergencyPaths
@@ -105,7 +106,7 @@ object StartFloorScenario : Scenario() {
         state(elevator) {
             action {
                 reactions.say("Окей, я добежал до лифтов, вызвал.")
-                reactions.say("${delayS(5)} Похоже, лифты отключились, и я только зря потратил время. Побегу на лестницу.")
+                reactions.say("${delayS(5)}Похоже, лифты отключились, и я только зря потратил время. Побегу на лестницу.")
                 context.checkpoints.KeepCalm = false
                 handleSmoke()
                 reactions.go(redButton)
@@ -123,6 +124,7 @@ object StartFloorScenario : Scenario() {
                     intent("PressAlarm")
                 }
                 action {
+                    reactions.say(audio("https://248305.selcdn.ru/demo_bot_static/Keep_talking_сигнализация3с.wav.wav"))
                     reactions.say("Врубилась тревога")
                     context.checkpoints.ActivateFireAlarm = true
                     handleSmoke()
