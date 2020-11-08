@@ -14,11 +14,11 @@ object EndGameScenario : Scenario() {
             action {
                 reactions.say("Спасибо! Я спасен!")
                 checkpoints.getCompactNegative()?.let {
-                    reactions.say("Но тебе, все таки, стоит повторить правила поведения при пожаре.")
+                    reactions.say("Но тебе всё-таки стоит повторить правила поведения при пожаре.")
                     reactions.say("Ошибки были в случаях с $it")
                 } ?: {
-                    reactions.say("Спасателей лучше чем ты я не встречал.")
-                    reactions.say("Всё сделалано правильно! Ни одной ошибки.")
+                    reactions.say("Спасателей лучше тебя я ещё не встречал.")
+                    reactions.say("Всё сделано правильно! Ни одной ошибки.")
                 }()
             }
 
