@@ -64,11 +64,9 @@
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "@Close дверь"
+      "text" : "@Close @Door"
     }, {
-      "text" : "@Close дверку"
-    }, {
-      "text" : "@Close входную дверь"
+      "text" : "@Close входную @Door"
     }, {
       "text" : "@Close вход"
     } ],
@@ -84,6 +82,15 @@
       "text" : "@Close окошко"
     }, {
       "text" : "@Close форточку"
+    } ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9772,
+    "path" : "/Details",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "деталь"
     } ],
     "patterns" : [ ]
   }, {
@@ -135,6 +142,8 @@
       "text" : "@NoNeed @Jump"
     }, {
       "text" : "@No @Jump"
+    }, {
+      "text" : "остановись не делай этого"
     } ],
     "patterns" : [ ]
   }, {
@@ -198,17 +207,29 @@
     "enabled" : true,
     "shared" : false,
     "phrases" : [ {
-      "text" : "не беги"
+      "text" : "@No беги"
     }, {
-      "text" : "не убегай"
+      "text" : "@No убегай"
     }, {
-      "text" : "не уходи"
+      "text" : "@No уходи"
     }, {
       "text" : "@NoNeed уходить"
     }, {
       "text" : "@NoNeed убегать"
     }, {
       "text" : "@NoNeed бежать"
+    }, {
+      "text" : "@No торопись"
+    }, {
+      "text" : "будь осторожен"
+    }, {
+      "text" : "осторожнее"
+    }, {
+      "text" : "аккуратнее"
+    }, {
+      "text" : "иди аккуратно"
+    }, {
+      "text" : "держись за перила"
     } ],
     "patterns" : [ ]
   }, {
@@ -233,6 +254,15 @@
     } ],
     "patterns" : [ ]
   }, {
+    "id" : 9762,
+    "path" : "/FullDetails",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@Details все подробно"
+    } ],
+    "patterns" : [ ]
+  }, {
     "id" : 9403,
     "path" : "/GiveSign",
     "enabled" : true,
@@ -249,6 +279,10 @@
       "text" : "посигналь"
     }, {
       "text" : "нужен сигнал"
+    }, {
+      "text" : "обозначься"
+    }, {
+      "text" : "сделай так чтобы тебя увидели"
     } ],
     "patterns" : [ ]
   }, {
@@ -330,6 +364,16 @@
       "text" : "@NoNeed @Take @No вещи"
     }, {
       "text" : "@No @Take @No вещи"
+    }, {
+      "text" : "оставь вещи"
+    }, {
+      "text" : "оставь @Cloth"
+    }, {
+      "text" : "брось вещи"
+    }, {
+      "text" : "брось чемодан"
+    }, {
+      "text" : "@No @Take чемодан"
     } ],
     "patterns" : [ ]
   }, {
@@ -383,6 +427,26 @@
     } ],
     "patterns" : [ ]
   }, {
+    "id" : 9771,
+    "path" : "/Repeat",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "повтори"
+    } ],
+    "patterns" : [ ]
+  }, {
+    "id" : 9770,
+    "path" : "/Restart",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "заново"
+    }, {
+      "text" : "ещё раз"
+    } ],
+    "patterns" : [ ]
+  }, {
     "id" : 9400,
     "path" : "/Room",
     "description" : "Иди в комнату, закройся в комнате",
@@ -412,6 +476,10 @@
       "text" : "найди открытую комнату"
     }, {
       "text" : "поищи какая комната открыта"
+    }, {
+      "text" : "ищи укрытие"
+    }, {
+      "text" : "ищи куда спрятаться"
     } ],
     "patterns" : [ ]
   }, {
@@ -433,6 +501,19 @@
     } ],
     "patterns" : [ ],
     "slots" : [ ]
+  }, {
+    "id" : 9763,
+    "path" : "/ShortDetails",
+    "enabled" : true,
+    "shared" : false,
+    "phrases" : [ {
+      "text" : "@Details без"
+    }, {
+      "text" : "коротко"
+    }, {
+      "text" : "@Details"
+    } ],
+    "patterns" : [ ]
   }, {
     "id" : 9393,
     "path" : "/Stairs",
@@ -475,6 +556,10 @@
       "text" : "заткни @Cloth щель"
     }, {
       "text" : "заткни щели"
+    }, {
+      "text" : "забей @Cloth в зазор под дверью"
+    }, {
+      "text" : "подоткни дверь @Cloth"
     } ],
     "patterns" : [ ]
   }, {
@@ -488,6 +573,8 @@
       "text" : "используй @Wet @Cloth"
     }, {
       "text" : "@Take @Wet @Cloth"
+    }, {
+      "text" : "забей в щель под дверью @Wet @Cloth"
     } ],
     "patterns" : [ ]
   }, {
@@ -578,6 +665,26 @@
       "id" : 123817,
       "type" : "pattern",
       "rule" : [ "(тряпк*/полотенц*/ткан*/занавес*/штор*)" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 7778,
+      "name" : "Door",
+      "enabled" : true,
+      "shared" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : true,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 137856,
+      "type" : "synonyms",
+      "rule" : [ "дверь", "дверку" ],
       "value" : ""
     } ]
   }, {
@@ -685,6 +792,11 @@
       "rule" : [ "нееет", "неет" ],
       "value" : ""
     }, {
+      "id" : 137858,
+      "type" : "synonyms",
+      "rule" : [ "не не не" ],
+      "value" : ""
+    }, {
       "id" : 123801,
       "type" : "synonyms",
       "rule" : [ "нет" ],
@@ -768,6 +880,11 @@
       "id" : 123799,
       "type" : "pattern",
       "rule" : [ "(дави*/надави*/нажим*/нажат*/*жми)" ],
+      "value" : ""
+    }, {
+      "id" : 137855,
+      "type" : "synonyms",
+      "rule" : [ "(ткни/тыка*/тыкни)" ],
       "value" : ""
     } ]
   }, {
@@ -862,7 +979,7 @@
     "records" : [ {
       "id" : 133205,
       "type" : "pattern",
-      "rule" : [ "(намочи*/смочи*/смочен*/мокр*)" ],
+      "rule" : [ "(намочи*/смочи*/смочен*/мокр*/влажн*)" ],
       "value" : ""
     } ]
   }, {
@@ -880,9 +997,29 @@
       "client" : false
     },
     "records" : [ {
+      "id" : 137609,
+      "type" : "synonyms",
+      "rule" : [ "го" ],
+      "value" : ""
+    }, {
+      "id" : 137610,
+      "type" : "synonyms",
+      "rule" : [ "гоу" ],
+      "value" : ""
+    }, {
       "id" : 114423,
       "type" : "synonyms",
       "rule" : [ "да" ],
+      "value" : ""
+    }, {
+      "id" : 137607,
+      "type" : "synonyms",
+      "rule" : [ "давай" ],
+      "value" : ""
+    }, {
+      "id" : 137608,
+      "type" : "synonyms",
+      "rule" : [ "дерзай" ],
       "value" : ""
     }, {
       "id" : 114426,
