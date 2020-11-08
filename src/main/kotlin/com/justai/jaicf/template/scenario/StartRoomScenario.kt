@@ -42,7 +42,7 @@ object StartRoomScenario : Scenario() {
 
                 action {
                     if (checkpoints.CallFirefighters != true) {
-                        reactions.say("Да, пожарных я уже вызвал, но когда они ещё приедут, а мне нужно что-то делать…")
+                        reactions.say("Пожарных я уже вызвал, но когда они ещё приедут, а мне нужно что-то делать…")
                         checkpoints.CallFirefighters = true
                         checkpoints.KeepCalm = true
                     }
